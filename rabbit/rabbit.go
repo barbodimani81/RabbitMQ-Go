@@ -8,22 +8,26 @@ import (
 	mq "github.com/rabbitmq/amqp091-go"
 )
 
-// TODO: complete the ags for the methods
+// MessageQueue defines the methods for publishing and consuming messages.
 type MessageQueue interface {
-	Publish(queueName string, message string)
-	Consume(exchangeName string)
+	Publish(exchangeName string, message string) error
+	Consume(exchangeName string) (<-chan mq.Delivery, error)
 }
 
+// RabbitMQClient holds the connection and channel to RabbitMQ.
 type RabbitMQClient struct {
 	conn    *mq.Connection
 	channel *mq.Channel
+	url     string
 }
 
+// NewRabbitMQClient creates a new RabbitMQ client and establishes a connection.
 func NewRabbitMQClient(url string) (*RabbitMQClient, error) {
 	var conn *mq.Connection
 	var err error
 	backoff := 1 * time.Second
 
+	// Retry connection with exponential backoff
 	for retries := 0; retries < 5; retries++ {
 		conn, err = mq.Dial(url)
 		if err == nil {
@@ -31,13 +35,14 @@ func NewRabbitMQClient(url string) (*RabbitMQClient, error) {
 		}
 		log.Printf("Failed to connect to RabbitMQ, retrying in %s... (attempt %d/5)", backoff, retries+1)
 		time.Sleep(backoff)
-		backoff *= 2
+		backoff *= 2 // Exponential backoff
 	}
 
 	if err != nil {
 		return nil, fmt.Errorf("could not connect to RabbitMQ after 5 attempts: %w", err)
 	}
 
+	// Open a channel
 	channel, err := conn.Channel()
 	if err != nil {
 		return nil, fmt.Errorf("failed to open channel: %w", err)
@@ -46,95 +51,194 @@ func NewRabbitMQClient(url string) (*RabbitMQClient, error) {
 	return &RabbitMQClient{
 		conn:    conn,
 		channel: channel,
+		url:     url,
 	}, nil
 }
 
+// Publish sends a persistent message to a durable exchange.
 func (r *RabbitMQClient) Publish(exchangeName string, message string) error {
-	// Declare a durable exchange (survives RabbitMQ restarts)
-	err := r.channel.ExchangeDeclare(
-		exchangeName, // Exchange name
-		"fanout",     // Exchange type (fanout in this case)
-		true,         // Durable (survives restarts)
-		false,        // Auto-deleted (false means it won't be deleted when not in use)
-		false,        // Internal
-		false,        // No-wait
-		nil,          // Arguments
-	)
-	if err != nil {
+	// Retry logic in case of failure during publishing
+	for {
+		// Ensure the connection and channel are still valid
+		if err := r.ensureConnection(); err != nil {
+			log.Println("Connection lost, retrying publish:", err)
+			time.Sleep(5 * time.Second) // Sleep before retrying
+			continue
+		}
+
+		// Declare the durable exchange
+		err := r.channel.ExchangeDeclare(
+			exchangeName, // Exchange name
+			"fanout",     // Exchange type (fanout in this case)
+			true,         // Durable (survives restarts)
+			false,        // Auto-deleted (false means it won't be deleted when not in use)
+			false,        // Internal
+			false,        // No-wait
+			nil,          // Arguments
+		)
+		if err != nil {
+			log.Println("Failed to declare exchange:", err)
+			continue
+		}
+
+		// Publish a persistent message
+		err = r.channel.Publish(
+			exchangeName, // Exchange name
+			"",           // Routing key (not used for fanout)
+			false,        // Mandatory
+			false,        // Immediate
+			mq.Publishing{
+				ContentType:  "text/plain",    // Message content type
+				DeliveryMode: mq.Persistent,   // Persistent message
+				Body:         []byte(message), // Message body
+			},
+		)
+		if err != nil {
+			log.Println("Failed to publish message:", err)
+			continue
+		}
+
+		log.Printf("Message sent: %s", message)
+		return nil
+	}
+}
+
+// Consume receives messages from the specified exchange.
+// Consume receives messages from the specified exchange, with reconnection logic.
+func (r *RabbitMQClient) Consume(exchangeName string) (<-chan mq.Delivery, error) {
+	var msgs <-chan mq.Delivery
+	var err error
+
+	// Retry logic to reconnect to RabbitMQ if connection or channel is lost
+	for {
+		// Ensure the connection and channel are still valid
+		if err := r.ensureConnection(); err != nil {
+			log.Println("Connection lost, retrying consume:", err)
+			time.Sleep(5 * time.Second) // Sleep before retrying
+			continue
+		}
+
+		// Declare the durable exchange
+		err = r.channel.ExchangeDeclare(
+			exchangeName, // Exchange name
+			"fanout",     // Exchange type (fanout)
+			true,         // Durable (survives restarts)
+			false,        // Auto-deleted (false means it won't be deleted when not in use)
+			false,        // Internal
+			false,        // No-wait
+			nil,          // Arguments
+		)
+		if err != nil {
+			log.Println("Failed to declare exchange:", err)
+			time.Sleep(5 * time.Second) // Sleep before retrying
+			continue
+		}
+
+		// Declare a durable, non-exclusive queue
+		queue, err := r.channel.QueueDeclare(
+			"",    // Name (empty means RabbitMQ generates a unique name)
+			true,  // Durable (queue survives restarts)
+			true,  // Auto-delete (queue will be deleted when no consumers are attached)
+			false, // Exclusive (queue is not exclusive to the connection)
+			false, // No-wait
+			nil,   // Arguments
+		)
+		if err != nil {
+			log.Println("Failed to declare queue:", err)
+			time.Sleep(5 * time.Second) // Sleep before retrying
+			continue
+		}
+
+		// Bind the queue to the fanout exchange
+		err = r.channel.QueueBind(
+			queue.Name,   // Queue name
+			"",           // Routing key (not used for fanout)
+			exchangeName, // Exchange name
+			false,        // No-wait
+			nil,          // Arguments
+		)
+		if err != nil {
+			log.Println("Failed to bind queue:", err)
+			time.Sleep(5 * time.Second) // Sleep before retrying
+			continue
+		}
+
+		// Start consuming from the queue
+		msgs, err = r.channel.Consume(
+			queue.Name, // Queue name
+			"",         // Consumer tag (empty means autogenerated)
+			true,       // Auto-acknowledge
+			false,      // Exclusive
+			false,      // No-local
+			false,      // No-wait
+			nil,        // Arguments
+		)
+		if err != nil {
+			log.Println("Failed to start consuming:", err)
+			time.Sleep(5 * time.Second) // Sleep before retrying
+			continue
+		}
+
+		break // Successfully connected and consuming
+	}
+
+	return msgs, nil
+}
+
+// ensureConnection checks if the connection and channel are still valid.
+// ensureConnection checks if the connection and channel are still valid.
+func (r *RabbitMQClient) ensureConnection() error {
+	// Check if the connection is closed or nil
+	if r.conn == nil || r.conn.IsClosed() {
+		log.Println("RabbitMQ connection is closed or nil, reconnecting...")
+		// Reconnect logic with backoff using the stored URL
+		r.conn = nil
+		r.channel = nil
+		backoff := 1 * time.Second
+		for {
+			conn, err := mq.Dial(r.url)
+			if err != nil {
+				log.Printf("Reconnect failed, retrying in %s: %v", backoff, err)
+				time.Sleep(backoff)
+				if backoff < 30*time.Second {
+					backoff *= 2
+				}
+				continue
+			}
+			ch, err := conn.Channel()
+			if err != nil {
+				log.Printf("Channel open failed, retrying in %s: %v", backoff, err)
+				_ = conn.Close()
+				time.Sleep(backoff)
+				if backoff < 30*time.Second {
+					backoff *= 2
+				}
+				continue
+			}
+			r.conn = conn
+			r.channel = ch
+			break
+		}
+	}
+
+	// Check if the channel is closed or nil
+	if r.channel == nil || r.channel.IsClosed() {
+		log.Println("RabbitMQ channel is closed or nil, reopening...")
+		var err error
+		r.channel, err = r.conn.Channel()
 		return err
 	}
 
-	// Publish a persistent message
-	err = r.channel.Publish(
-		exchangeName, // Exchange name
-		"",           // Routing key (not used for fanout)
-		false,        // Mandatory
-		false,        // Immediate
-		mq.Publishing{
-			ContentType:  "text/plain",    // Message content type
-			DeliveryMode: mq.Persistent,   // Persistent message
-			Body:         []byte(message), // Message body
-		},
-	)
-	return err
-}
-
-func (r *RabbitMQClient) Consume(exchangeName string) (<-chan mq.Delivery, error) {
-	// Declare a durable exchange (survives RabbitMQ restarts)
-	err := r.channel.ExchangeDeclare(
-		exchangeName, // Exchange name
-		"fanout",     // Exchange type (fanout)
-		true,         // Durable (survives restarts)
-		false,        // Auto-deleted (false means it won't be deleted when not in use)
-		false,        // Internal
-		false,        // No-wait
-		nil,          // Arguments
-	)
-	if err != nil {
-		return nil, err
-	}
-
-	// Declare a durable, non-exclusive queue
-	queue, err := r.channel.QueueDeclare(
-		"",    // Name (empty means RabbitMQ generates a unique name)
-		true,  // Durable (queue survives restarts)
-		true,  // Auto-delete (queue will be deleted when no consumers are attached)
-		false, // Exclusive (queue is not exclusive to the connection)
-		false, // No-wait
-		nil,   // Arguments
-	)
-	if err != nil {
-		return nil, err
-	}
-
-	// Bind the queue to the fanout exchange
-	err = r.channel.QueueBind(
-		queue.Name,   // Queue name
-		"",           // Routing key (not used for fanout)
-		exchangeName, // Exchange name
-		false,        // No-wait
-		nil,          // Arguments
-	)
-	if err != nil {
-		return nil, err
-	}
-
-	// Start consuming from the queue
-	msgs, err := r.channel.Consume(
-		queue.Name, // Queue name
-		"",         // Consumer tag (empty means autogenerated)
-		true,       // Auto-acknowledge
-		false,      // Exclusive
-		false,      // No-local
-		false,      // No-wait
-		nil,        // Arguments
-	)
-	return msgs, err
+	return nil
 }
 
 // Close gracefully shuts down the RabbitMQ connection and channel.
 func (r *RabbitMQClient) Close() {
 	// Close the channel and connection
-	r.channel.Close()
-	r.conn.Close()
+	if r.channel != nil {
+		r.channel.Close()
+	}
+	if r.conn != nil {
+		r.conn.Close()
+	}
 }

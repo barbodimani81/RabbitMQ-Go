@@ -5,6 +5,12 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
     networks:
       - app-net
 
@@ -14,7 +20,9 @@ services:
       dockerfile: publisher/Dockerfile
     container_name: publisher
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
     networks:
       - app-net
 
@@ -24,7 +32,9 @@ services:
       dockerfile: consumer/Dockerfile
     container_name: consumer
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
     networks:
       - app-net
 
