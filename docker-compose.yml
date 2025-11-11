@@ -1,0 +1,33 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - app-net
+
+  publisher:
+    build:
+      context: .                # build context = project root
+      dockerfile: publisher/Dockerfile
+    container_name: publisher
+    depends_on:
+      - rabbitmq
+    networks:
+      - app-net
+
+  consumer:
+    build:
+      context: .
+      dockerfile: consumer/Dockerfile
+    container_name: consumer
+    depends_on:
+      - rabbitmq
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
