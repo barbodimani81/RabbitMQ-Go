@@ -51,7 +51,7 @@ func loadConfig() ConsumerConfig {
 		cfg.WorkerCount = 6
 
 	default:
-		log.Fatalf("unknown scanrio: %q", scenario)
+		log.Fatalf("unknown scenario: %q (use A, B, or C)", scenario)
 	}
 
 	return cfg
@@ -80,7 +80,7 @@ func setupLogger(cfg ConsumerConfig) (*os.File, error) {
 	mw := io.MultiWriter(os.Stdout, f)
 	log.SetOutput(mw)
 
-	// Optional: tweak flags – add date/time + microseconds + short file
+	// date + time + microseconds
 	log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds)
 
 	log.Printf("Logging to file %s", path)
@@ -89,12 +89,10 @@ func setupLogger(cfg ConsumerConfig) (*os.File, error) {
 }
 
 func main() {
-
 	cfg := loadConfig()
 
 	logFile, err := setupLogger(cfg)
 	if err != nil {
-		// If we can't log to file, that's serious enough to stop
 		log.Fatalf("Failed to set up logger: %s", err)
 	}
 	defer logFile.Close()
@@ -114,53 +112,78 @@ func main() {
 		log.Fatalf("Failed to set QoS (prefetch=%d): %s", cfg.Prefetch, err)
 	}
 
-	for {
-		msgs, err := client.Consume("logs", cfg.AutoAck)
-		if err != nil {
-			log.Printf("Failed to start consuming, will retry: %s", err)
-			time.Sleep(5 * time.Second)
-			continue
+	queueName := "logs" // ensure this matches your actual queue name
+
+	msgs, err := client.Consume(queueName, cfg.AutoAck)
+	if err != nil {
+		log.Fatalf("Failed to start consuming from queue %q: %s", queueName, err)
+	}
+
+	var (
+		firstMessageTime time.Time
+		messageCount     int
+	)
+
+	log.Println("Consumer is now waiting for messages...")
+
+	// Different work durations per scenario just for clearer comparison.
+	workDuration := 1 * time.Second
+	if cfg.Scenario == "B" {
+		workDuration = 2 * time.Second
+	}
+
+	for msg := range msgs {
+		// mark first message time
+		if firstMessageTime.IsZero() {
+			firstMessageTime = time.Now()
+			log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
+				cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
 		}
 
-		var (
-			firstMessageTime time.Time
-			messageCount     int
+		messageCount++
+		now := time.Now()
+		elapsed := now.Sub(firstMessageTime)
+
+		log.Printf(
+			"[Scenario=%s Consumer=%s] Message #%d body=%q elapsed_since_first=%s",
+			cfg.Scenario,
+			cfg.ConsumerID,
+			messageCount,
+			string(msg.Body),
+			elapsed,
 		)
 
-		log.Println("Consumer is now waiting for messages...")
-		// Process incoming messages until the channel closes (e.g., broker restart)
-		for msg := range msgs {
-			// mark first message time
-			if firstMessageTime.IsZero() {
-				firstMessageTime = time.Now()
-				log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
-					cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
+		// Simulate work
+		time.Sleep(workDuration)
+
+		// Manual ack if auto-ack is disabled (Scenario B, later C)
+		if !cfg.AutoAck {
+			if err := msg.Ack(false); err != nil {
+				log.Printf(
+					"[Scenario=%s Consumer=%s] FAILED to ack message #%d: %s",
+					cfg.Scenario,
+					cfg.ConsumerID,
+					messageCount,
+					err,
+				)
+			} else {
+				log.Printf(
+					"[Scenario=%s Consumer=%s] Acked message #%d",
+					cfg.Scenario,
+					cfg.ConsumerID,
+					messageCount,
+				)
 			}
-
-			messageCount++
-			now := time.Now()
-			elapsed := now.Sub(firstMessageTime)
-
-			log.Printf(
-				"[Scenario=%s Consumer=%s] Message #%d body=%q elapsed_since_first=%s",
-				cfg.Scenario,
-				cfg.ConsumerID,
-				messageCount,
-				string(msg.Body),
-				elapsed,
-			)
-
-			// Simulate light work so we can see sequential behavior
-			time.Sleep(1 * time.Second)
 		}
-		// If we reach here, the msgs channel closed. Loop will attempt to re-consume.
-		if !firstMessageTime.IsZero() {
-			totalElapsed := time.Since(firstMessageTime)
-			log.Printf("[Scenario=%s Consumer=%s] Message stream ended. Total elapsed since first message: %s (messages=%d)",
-				cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount)
-		} else {
-			log.Printf("[Scenario=%s Consumer=%s] No messages received.",
-				cfg.Scenario, cfg.ConsumerID)
-		}
+	}
+
+	// Channel closed -> log total elapsed
+	if !firstMessageTime.IsZero() {
+		totalElapsed := time.Since(firstMessageTime)
+		log.Printf("[Scenario=%s Consumer=%s] Message stream ended. Total elapsed since first message: %s (messages=%d)",
+			cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount)
+	} else {
+		log.Printf("[Scenario=%s Consumer=%s] No messages received.",
+			cfg.Scenario, cfg.ConsumerID)
 	}
 }
