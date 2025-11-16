@@ -12,7 +12,7 @@ func main() {
 	var err error
 	// Retry creating client until RabbitMQ is available
 	for {
-		client, err = rabbit.NewRabbitMQClient("amqp://guest:guest@rabbitmq:5672/")
+		client, err = rabbit.NewRabbitMQClient("amqp://guest:guest@localhost:5672/")
 		if err == nil {
 			break
 		}
@@ -23,7 +23,7 @@ func main() {
 
 	exchangeName := "logs"
 	for i := 1; i <= 100; i++ {
-		message := fmt.Sprintf("Message #%d", i)
+		message := fmt.Sprintf("Task #%d", i)
 		// Retry publish of the same message until it succeeds
 		for {
 			err := client.Publish(exchangeName, message)
@@ -35,6 +35,5 @@ func main() {
 			break
 		}
 		fmt.Printf("Sent: %s\n", message)
-		time.Sleep(1 * time.Second)
 	}
 }
