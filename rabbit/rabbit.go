@@ -104,14 +104,13 @@ func (r *RabbitMQClient) Publish(exchangeName string, message string) error {
 }
 
 // Consume receives messages from the specified exchange.
-// Consume receives messages from the specified exchange, with reconnection logic.
+
 func (r *RabbitMQClient) Consume(exchangeName string) (<-chan mq.Delivery, error) {
 	var msgs <-chan mq.Delivery
 	var err error
 
 	// Retry logic to reconnect to RabbitMQ if connection or channel is lost
 	for {
-		// Ensure the connection and channel are still valid
 		if err := r.ensureConnection(); err != nil {
 			log.Println("Connection lost, retrying consume:", err)
 			time.Sleep(5 * time.Second) // Sleep before retrying
