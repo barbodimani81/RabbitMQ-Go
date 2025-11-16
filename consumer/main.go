@@ -110,25 +110,57 @@ func main() {
 	}
 	defer client.Close()
 
-	exchangeName := "logs"
+	if err := client.SetQos(cfg.Prefetch); err != nil {
+		log.Fatalf("Failed to set QoS (prefetch=%d): %s", cfg.Prefetch, err)
+	}
+
 	for {
-		msgs, err := client.Consume(exchangeName)
+		msgs, err := client.Consume("logs", cfg.AutoAck)
 		if err != nil {
 			log.Printf("Failed to start consuming, will retry: %s", err)
 			time.Sleep(5 * time.Second)
 			continue
 		}
+
+		var (
+			firstMessageTime time.Time
+			messageCount     int
+		)
+
+		log.Println("Consumer is now waiting for messages...")
 		// Process incoming messages until the channel closes (e.g., broker restart)
 		for msg := range msgs {
+			// mark first message time
+			if firstMessageTime.IsZero() {
+				firstMessageTime = time.Now()
+				log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
+					cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
+			}
+
+			messageCount++
+			now := time.Now()
+			elapsed := now.Sub(firstMessageTime)
+
 			log.Printf(
-				"[Scenario=%s Consumer=%s] Received message: %s",
+				"[Scenario=%s Consumer=%s] Message #%d body=%q elapsed_since_first=%s",
 				cfg.Scenario,
 				cfg.ConsumerID,
+				messageCount,
 				string(msg.Body),
+				elapsed,
 			)
+
+			// Simulate light work so we can see sequential behavior
+			time.Sleep(1 * time.Second)
 		}
 		// If we reach here, the msgs channel closed. Loop will attempt to re-consume.
-		log.Println("Message channel closed, attempting to re-establish consumer...")
-		time.Sleep(2 * time.Second)
+		if !firstMessageTime.IsZero() {
+			totalElapsed := time.Since(firstMessageTime)
+			log.Printf("[Scenario=%s Consumer=%s] Message stream ended. Total elapsed since first message: %s (messages=%d)",
+				cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount)
+		} else {
+			log.Printf("[Scenario=%s Consumer=%s] No messages received.",
+				cfg.Scenario, cfg.ConsumerID)
+		}
 	}
 }
