@@ -1,0 +1,9 @@
+2025/11/17 12:43:41.320848 Logging to file logs/scenario_A_consumer2.log
+2025/11/17 12:43:41.321564 Starting: Scenario=A ConsumerID=2 AutoAck=true Prefetch=1 Workers=1
+2025/11/17 12:43:41.354038 Consumer is now waiting for messages (sequential)...
+2025/11/17 12:43:46.147805 [Scenario=A Consumer=2] First message received at 2025-11-17T12:43:46.147773+03:30
+2025/11/17 12:43:46.147842 [Scenario=A Consumer=2] Message #1 body="Task #1" elapsed_since_first=65.417µs
+2025/11/17 12:43:47.149004 [Scenario=A Consumer=2] Message #2 body="Task #3" elapsed_since_first=1.001205s
+2025/11/17 12:43:48.150122 [Scenario=A Consumer=2] Message #3 body="Task #5" elapsed_since_first=2.002304875s
+2025/11/17 12:43:49.151214 [Scenario=A Consumer=2] Message #4 body="Task #7" elapsed_since_first=3.003375917s
+2025/11/17 12:43:50.152442 [Scenario=A Consumer=2] Message #5 body="Task #9" elapsed_since_first=4.004583959s

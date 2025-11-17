@@ -1,14 +1,9 @@
-2025/11/17 12:02:06.145696 Logging to file logs/scenario_A_consumer1.log
-2025/11/17 12:02:06.146284 Starting: Scenario=A ConsumerID=1 AutoAck=true Prefetch=1 Workers=1
-2025/11/17 12:02:06.185210 Consumer is now waiting for messages (sequential)...
-2025/11/17 12:02:07.661118 [Scenario=A Consumer=1] First message received at 2025-11-17T12:02:07.6611+03:30
-2025/11/17 12:02:07.661151 [Scenario=A Consumer=1] Message #1 body="Task #1" elapsed_since_first=50.166µs
-2025/11/17 12:02:08.662288 [Scenario=A Consumer=1] Message #2 body="Task #2" elapsed_since_first=1.001153875s
-2025/11/17 12:02:09.663524 [Scenario=A Consumer=1] Message #3 body="Task #3" elapsed_since_first=2.002379416s
-2025/11/17 12:02:10.664621 [Scenario=A Consumer=1] Message #4 body="Task #4" elapsed_since_first=3.003465333s
-2025/11/17 12:02:11.665873 [Scenario=A Consumer=1] Message #5 body="Task #5" elapsed_since_first=4.004699833s
-2025/11/17 12:02:12.667132 [Scenario=A Consumer=1] Message #6 body="Task #6" elapsed_since_first=5.005948666s
-2025/11/17 12:02:13.668300 [Scenario=A Consumer=1] Message #7 body="Task #7" elapsed_since_first=6.007095125s
-2025/11/17 12:02:14.669660 [Scenario=A Consumer=1] Message #8 body="Task #8" elapsed_since_first=7.008438375s
-2025/11/17 12:02:15.670995 [Scenario=A Consumer=1] Message #9 body="Task #9" elapsed_since_first=8.009757083s
-2025/11/17 12:02:16.672185 [Scenario=A Consumer=1] Message #10 body="Task #10" elapsed_since_first=9.010932083s
+2025/11/17 12:43:43.194066 Logging to file logs/scenario_A_consumer1.log
+2025/11/17 12:43:43.194258 Starting: Scenario=A ConsumerID=1 AutoAck=true Prefetch=1 Workers=1
+2025/11/17 12:43:43.206178 Consumer is now waiting for messages (sequential)...
+2025/11/17 12:43:46.148149 [Scenario=A Consumer=1] First message received at 2025-11-17T12:43:46.148124+03:30
+2025/11/17 12:43:46.148177 [Scenario=A Consumer=1] Message #1 body="Task #2" elapsed_since_first=52.708µs
+2025/11/17 12:43:47.149390 [Scenario=A Consumer=1] Message #2 body="Task #4" elapsed_since_first=1.001239042s
+2025/11/17 12:43:48.150298 [Scenario=A Consumer=1] Message #3 body="Task #6" elapsed_since_first=2.00212725s
+2025/11/17 12:43:49.151124 [Scenario=A Consumer=1] Message #4 body="Task #8" elapsed_since_first=3.002935042s
+2025/11/17 12:43:50.152441 [Scenario=A Consumer=1] Message #5 body="Task #10" elapsed_since_first=4.004233875s

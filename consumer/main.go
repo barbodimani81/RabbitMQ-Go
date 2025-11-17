@@ -23,6 +23,46 @@ type ConsumerConfig struct {
 	ConsumerID  string
 }
 
+func main() {
+	cfg := loadConfig()
+
+	logFile, err := setupLogger(cfg)
+	if err != nil {
+		log.Fatalf("Failed to set up logger: %s", err)
+	}
+	defer func() {
+		if cerr := logFile.Close(); cerr != nil {
+			log.Printf("Warning: failed to close log file: %v", cerr)
+		}
+	}()
+
+	log.Printf(
+		"Starting: Scenario=%s ConsumerID=%s AutoAck=%t Prefetch=%d Workers=%d",
+		cfg.Scenario, cfg.ConsumerID, cfg.AutoAck, cfg.Prefetch, cfg.WorkerCount,
+	)
+
+	client, err := rabbit.NewRabbitMQClient("amqp://guest:guest@localhost:5672/")
+	if err != nil {
+		log.Fatalf("Failed to connect to RabbitMQ: %s", err)
+	}
+	defer client.Close()
+
+	if err := client.SetQos(cfg.Prefetch); err != nil {
+		log.Fatalf("Failed to set QoS (prefetch=%d): %s", cfg.Prefetch, err)
+	}
+
+	queueName := "logs_queue"
+
+	switch cfg.Scenario {
+	case "A", "B":
+		runScenarioAB(cfg, client, queueName)
+	case "C":
+		runScenarioC(cfg, client, queueName)
+	default:
+		log.Fatalf("Unsupported scenario: %s", cfg.Scenario)
+	}
+}
+
 func loadConfig() ConsumerConfig {
 	scenarioFlag := flag.String("scenario", "A", "Scenarios: A, B, C")
 	consumerIDFlag := flag.String("consumer-id", "1", "Identifier for consumer")
@@ -99,46 +139,6 @@ func setupLogger(cfg ConsumerConfig) (*os.File, error) {
 	log.Printf("Logging to file %s", path)
 
 	return f, nil
-}
-
-func main() {
-	cfg := loadConfig()
-
-	logFile, err := setupLogger(cfg)
-	if err != nil {
-		log.Fatalf("Failed to set up logger: %s", err)
-	}
-	defer func() {
-		if cerr := logFile.Close(); cerr != nil {
-			log.Printf("Warning: failed to close log file: %v", cerr)
-		}
-	}()
-
-	log.Printf(
-		"Starting: Scenario=%s ConsumerID=%s AutoAck=%t Prefetch=%d Workers=%d",
-		cfg.Scenario, cfg.ConsumerID, cfg.AutoAck, cfg.Prefetch, cfg.WorkerCount,
-	)
-
-	client, err := rabbit.NewRabbitMQClient("amqp://guest:guest@localhost:5672/")
-	if err != nil {
-		log.Fatalf("Failed to connect to RabbitMQ: %s", err)
-	}
-	defer client.Close()
-
-	if err := client.SetQos(cfg.Prefetch); err != nil {
-		log.Fatalf("Failed to set QoS (prefetch=%d): %s", cfg.Prefetch, err)
-	}
-
-	queueName := "logs" // must match your queue
-
-	switch cfg.Scenario {
-	case "A", "B":
-		runScenarioAB(cfg, client, queueName)
-	case "C":
-		runScenarioC(cfg, client, queueName)
-	default:
-		log.Fatalf("Unsupported scenario: %s", cfg.Scenario)
-	}
 }
 
 // Scenario A & B: sequential consumer
