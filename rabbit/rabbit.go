@@ -237,11 +237,15 @@ func (r *RabbitMQClient) ensureConnection() error {
 
 // Close gracefully shuts down the RabbitMQ connection and channel.
 func (r *RabbitMQClient) Close() {
-	// Close the channel and connection
+	// Close the channel and connection, logging any errors
 	if r.channel != nil {
-		r.channel.Close()
+		if err := r.channel.Close(); err != nil {
+			log.Printf("Error closing RabbitMQ channel: %v", err)
+		}
 	}
 	if r.conn != nil {
-		r.conn.Close()
+		if err := r.conn.Close(); err != nil {
+			log.Printf("Error closing RabbitMQ connection: %v", err)
+		}
 	}
 }

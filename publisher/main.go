@@ -22,7 +22,7 @@ func main() {
 	defer client.Close()
 
 	exchangeName := "logs"
-	for i := 1; i <= 100; i++ {
+	for i := 1; i <= 10; i++ {
 		message := fmt.Sprintf("Task #%d", i)
 		// Retry publish of the same message until it succeeds
 		for {
@@ -34,7 +34,8 @@ func main() {
 			}
 			break
 		}
-		// time.Sleep(1*time.Second)
+
 		fmt.Printf("Sent: %s\n", message)
+		// time.Sleep(1*time.Second)
 	}
 }
