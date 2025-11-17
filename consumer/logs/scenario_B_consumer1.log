@@ -1,206 +1,24 @@
-2025/11/16 22:00:20.756953 Logging to file logs/scenario_B_consumer1.log
-2025/11/16 22:00:20.757083 Starting: Scenario=B ConsumerID=1 AutoAck=false Prefetch=1 Workers=1
-2025/11/16 22:00:20.770693 Consumer is now waiting for messages...
-2025/11/16 22:00:26.191488 [Scenario=B Consumer=1] First message received at 2025-11-16T22:00:26.19132+03:30
-2025/11/16 22:00:26.191522 [Scenario=B Consumer=1] Message #1 body="Task #1" elapsed_since_first=201.416µs
-2025/11/16 22:00:26.191564 [Scenario=B Consumer=1] Acked message #1
-2025/11/16 22:00:26.192261 [Scenario=B Consumer=1] Message #2 body="Task #2" elapsed_since_first=940.708µs
-2025/11/16 22:00:26.192284 [Scenario=B Consumer=1] Acked message #2
-2025/11/16 22:00:26.192669 [Scenario=B Consumer=1] Message #3 body="Task #3" elapsed_since_first=1.3485ms
-2025/11/16 22:00:26.192688 [Scenario=B Consumer=1] Acked message #3
-2025/11/16 22:00:26.193049 [Scenario=B Consumer=1] Message #4 body="Task #4" elapsed_since_first=1.729125ms
-2025/11/16 22:00:26.193079 [Scenario=B Consumer=1] Acked message #4
-2025/11/16 22:00:26.193478 [Scenario=B Consumer=1] Message #5 body="Task #5" elapsed_since_first=2.157416ms
-2025/11/16 22:00:26.193504 [Scenario=B Consumer=1] Acked message #5
-2025/11/16 22:00:26.193948 [Scenario=B Consumer=1] Message #6 body="Task #6" elapsed_since_first=2.615916ms
-2025/11/16 22:00:26.193974 [Scenario=B Consumer=1] Acked message #6
-2025/11/16 22:00:26.194374 [Scenario=B Consumer=1] Message #7 body="Task #7" elapsed_since_first=3.053541ms
-2025/11/16 22:00:26.194390 [Scenario=B Consumer=1] Acked message #7
-2025/11/16 22:00:26.194825 [Scenario=B Consumer=1] Message #8 body="Task #8" elapsed_since_first=3.504375ms
-2025/11/16 22:00:26.194841 [Scenario=B Consumer=1] Acked message #8
-2025/11/16 22:00:26.195200 [Scenario=B Consumer=1] Message #9 body="Task #9" elapsed_since_first=3.880041ms
-2025/11/16 22:00:26.195213 [Scenario=B Consumer=1] Acked message #9
-2025/11/16 22:00:26.195690 [Scenario=B Consumer=1] Message #10 body="Task #10" elapsed_since_first=4.369416ms
-2025/11/16 22:00:26.195709 [Scenario=B Consumer=1] Acked message #10
-2025/11/16 22:00:26.196253 [Scenario=B Consumer=1] Message #11 body="Task #11" elapsed_since_first=4.932666ms
-2025/11/16 22:00:26.196330 [Scenario=B Consumer=1] Acked message #11
-2025/11/16 22:00:26.197131 [Scenario=B Consumer=1] Message #12 body="Task #12" elapsed_since_first=5.810333ms
-2025/11/16 22:00:26.197171 [Scenario=B Consumer=1] Acked message #12
-2025/11/16 22:00:26.197577 [Scenario=B Consumer=1] Message #13 body="Task #13" elapsed_since_first=6.256333ms
-2025/11/16 22:00:26.197633 [Scenario=B Consumer=1] Acked message #13
-2025/11/16 22:00:26.197982 [Scenario=B Consumer=1] Message #14 body="Task #14" elapsed_since_first=6.661875ms
-2025/11/16 22:00:26.197994 [Scenario=B Consumer=1] Acked message #14
-2025/11/16 22:00:26.198506 [Scenario=B Consumer=1] Message #15 body="Task #15" elapsed_since_first=7.185458ms
-2025/11/16 22:00:26.198528 [Scenario=B Consumer=1] Acked message #15
-2025/11/16 22:00:26.198924 [Scenario=B Consumer=1] Message #16 body="Task #16" elapsed_since_first=7.603916ms
-2025/11/16 22:00:26.198935 [Scenario=B Consumer=1] Acked message #16
-2025/11/16 22:00:26.199353 [Scenario=B Consumer=1] Message #17 body="Task #17" elapsed_since_first=8.032875ms
-2025/11/16 22:00:26.199365 [Scenario=B Consumer=1] Acked message #17
-2025/11/16 22:00:26.199660 [Scenario=B Consumer=1] Message #18 body="Task #18" elapsed_since_first=8.340041ms
-2025/11/16 22:00:26.199679 [Scenario=B Consumer=1] Acked message #18
-2025/11/16 22:00:26.200033 [Scenario=B Consumer=1] Message #19 body="Task #19" elapsed_since_first=8.712458ms
-2025/11/16 22:00:26.200049 [Scenario=B Consumer=1] Acked message #19
-2025/11/16 22:00:26.200401 [Scenario=B Consumer=1] Message #20 body="Task #20" elapsed_since_first=9.081083ms
-2025/11/16 22:00:26.200411 [Scenario=B Consumer=1] Acked message #20
-2025/11/16 22:00:26.200720 [Scenario=B Consumer=1] Message #21 body="Task #21" elapsed_since_first=9.399416ms
-2025/11/16 22:00:26.200734 [Scenario=B Consumer=1] Acked message #21
-2025/11/16 22:00:26.201178 [Scenario=B Consumer=1] Message #22 body="Task #22" elapsed_since_first=9.857875ms
-2025/11/16 22:00:26.201211 [Scenario=B Consumer=1] Acked message #22
-2025/11/16 22:00:26.201625 [Scenario=B Consumer=1] Message #23 body="Task #23" elapsed_since_first=10.304333ms
-2025/11/16 22:00:26.201639 [Scenario=B Consumer=1] Acked message #23
-2025/11/16 22:00:26.202065 [Scenario=B Consumer=1] Message #24 body="Task #24" elapsed_since_first=10.744333ms
-2025/11/16 22:00:26.202079 [Scenario=B Consumer=1] Acked message #24
-2025/11/16 22:00:26.202413 [Scenario=B Consumer=1] Message #25 body="Task #25" elapsed_since_first=11.092416ms
-2025/11/16 22:00:26.202429 [Scenario=B Consumer=1] Acked message #25
-2025/11/16 22:00:26.202915 [Scenario=B Consumer=1] Message #26 body="Task #26" elapsed_since_first=11.59425ms
-2025/11/16 22:00:26.202940 [Scenario=B Consumer=1] Acked message #26
-2025/11/16 22:00:26.203307 [Scenario=B Consumer=1] Message #27 body="Task #27" elapsed_since_first=11.9865ms
-2025/11/16 22:00:26.203320 [Scenario=B Consumer=1] Acked message #27
-2025/11/16 22:00:26.203722 [Scenario=B Consumer=1] Message #28 body="Task #28" elapsed_since_first=12.402041ms
-2025/11/16 22:00:26.203737 [Scenario=B Consumer=1] Acked message #28
-2025/11/16 22:00:26.205204 [Scenario=B Consumer=1] Message #29 body="Task #29" elapsed_since_first=13.883791ms
-2025/11/16 22:00:26.205272 [Scenario=B Consumer=1] Acked message #29
-2025/11/16 22:00:26.205994 [Scenario=B Consumer=1] Message #30 body="Task #30" elapsed_since_first=14.673958ms
-2025/11/16 22:00:26.206012 [Scenario=B Consumer=1] Acked message #30
-2025/11/16 22:00:26.206383 [Scenario=B Consumer=1] Message #31 body="Task #31" elapsed_since_first=15.061666ms
-2025/11/16 22:00:26.206435 [Scenario=B Consumer=1] Acked message #31
-2025/11/16 22:00:26.207107 [Scenario=B Consumer=1] Message #32 body="Task #32" elapsed_since_first=15.787041ms
-2025/11/16 22:00:26.207135 [Scenario=B Consumer=1] Acked message #32
-2025/11/16 22:00:26.207554 [Scenario=B Consumer=1] Message #33 body="Task #33" elapsed_since_first=16.233541ms
-2025/11/16 22:00:26.208245 [Scenario=B Consumer=1] Acked message #33
-2025/11/16 22:00:26.208636 [Scenario=B Consumer=1] Message #34 body="Task #34" elapsed_since_first=17.315125ms
-2025/11/16 22:00:26.208656 [Scenario=B Consumer=1] Acked message #34
-2025/11/16 22:00:26.209016 [Scenario=B Consumer=1] Message #35 body="Task #35" elapsed_since_first=17.695ms
-2025/11/16 22:00:26.209031 [Scenario=B Consumer=1] Acked message #35
-2025/11/16 22:00:26.209416 [Scenario=B Consumer=1] Message #36 body="Task #36" elapsed_since_first=18.095666ms
-2025/11/16 22:00:26.209429 [Scenario=B Consumer=1] Acked message #36
-2025/11/16 22:00:26.210018 [Scenario=B Consumer=1] Message #37 body="Task #37" elapsed_since_first=18.697666ms
-2025/11/16 22:00:26.210030 [Scenario=B Consumer=1] Acked message #37
-2025/11/16 22:00:26.210526 [Scenario=B Consumer=1] Message #38 body="Task #38" elapsed_since_first=19.206ms
-2025/11/16 22:00:26.210536 [Scenario=B Consumer=1] Acked message #38
-2025/11/16 22:00:26.210973 [Scenario=B Consumer=1] Message #39 body="Task #39" elapsed_since_first=19.652333ms
-2025/11/16 22:00:26.210983 [Scenario=B Consumer=1] Acked message #39
-2025/11/16 22:00:26.211412 [Scenario=B Consumer=1] Message #40 body="Task #40" elapsed_since_first=20.091458ms
-2025/11/16 22:00:26.211436 [Scenario=B Consumer=1] Acked message #40
-2025/11/16 22:00:26.211874 [Scenario=B Consumer=1] Message #41 body="Task #41" elapsed_since_first=20.553875ms
-2025/11/16 22:00:26.211885 [Scenario=B Consumer=1] Acked message #41
-2025/11/16 22:00:26.212199 [Scenario=B Consumer=1] Message #42 body="Task #42" elapsed_since_first=20.878583ms
-2025/11/16 22:00:26.212207 [Scenario=B Consumer=1] Acked message #42
-2025/11/16 22:00:26.212513 [Scenario=B Consumer=1] Message #43 body="Task #43" elapsed_since_first=21.192291ms
-2025/11/16 22:00:26.212521 [Scenario=B Consumer=1] Acked message #43
-2025/11/16 22:00:26.212844 [Scenario=B Consumer=1] Message #44 body="Task #44" elapsed_since_first=21.52325ms
-2025/11/16 22:00:26.212855 [Scenario=B Consumer=1] Acked message #44
-2025/11/16 22:00:26.213227 [Scenario=B Consumer=1] Message #45 body="Task #45" elapsed_since_first=21.906875ms
-2025/11/16 22:00:26.213242 [Scenario=B Consumer=1] Acked message #45
-2025/11/16 22:00:26.213563 [Scenario=B Consumer=1] Message #46 body="Task #46" elapsed_since_first=22.242833ms
-2025/11/16 22:00:26.213573 [Scenario=B Consumer=1] Acked message #46
-2025/11/16 22:00:26.214041 [Scenario=B Consumer=1] Message #47 body="Task #47" elapsed_since_first=22.720875ms
-2025/11/16 22:00:26.214053 [Scenario=B Consumer=1] Acked message #47
-2025/11/16 22:00:26.214362 [Scenario=B Consumer=1] Message #48 body="Task #48" elapsed_since_first=23.041666ms
-2025/11/16 22:00:26.214375 [Scenario=B Consumer=1] Acked message #48
-2025/11/16 22:00:26.214689 [Scenario=B Consumer=1] Message #49 body="Task #49" elapsed_since_first=23.369166ms
-2025/11/16 22:00:26.214727 [Scenario=B Consumer=1] Acked message #49
-2025/11/16 22:00:26.215004 [Scenario=B Consumer=1] Message #50 body="Task #50" elapsed_since_first=23.684ms
-2025/11/16 22:00:26.215014 [Scenario=B Consumer=1] Acked message #50
-2025/11/16 22:00:26.215312 [Scenario=B Consumer=1] Message #51 body="Task #51" elapsed_since_first=23.991333ms
-2025/11/16 22:00:26.215323 [Scenario=B Consumer=1] Acked message #51
-2025/11/16 22:00:26.215617 [Scenario=B Consumer=1] Message #52 body="Task #52" elapsed_since_first=24.296416ms
-2025/11/16 22:00:26.215627 [Scenario=B Consumer=1] Acked message #52
-2025/11/16 22:00:26.215934 [Scenario=B Consumer=1] Message #53 body="Task #53" elapsed_since_first=24.613583ms
-2025/11/16 22:00:26.215945 [Scenario=B Consumer=1] Acked message #53
-2025/11/16 22:00:26.216321 [Scenario=B Consumer=1] Message #54 body="Task #54" elapsed_since_first=25.000208ms
-2025/11/16 22:00:26.216332 [Scenario=B Consumer=1] Acked message #54
-2025/11/16 22:00:26.216681 [Scenario=B Consumer=1] Message #55 body="Task #55" elapsed_since_first=25.360166ms
-2025/11/16 22:00:26.216693 [Scenario=B Consumer=1] Acked message #55
-2025/11/16 22:00:26.217048 [Scenario=B Consumer=1] Message #56 body="Task #56" elapsed_since_first=25.727333ms
-2025/11/16 22:00:26.217060 [Scenario=B Consumer=1] Acked message #56
-2025/11/16 22:00:26.217382 [Scenario=B Consumer=1] Message #57 body="Task #57" elapsed_since_first=26.061291ms
-2025/11/16 22:00:26.217394 [Scenario=B Consumer=1] Acked message #57
-2025/11/16 22:00:26.218046 [Scenario=B Consumer=1] Message #58 body="Task #58" elapsed_since_first=26.725958ms
-2025/11/16 22:00:26.218056 [Scenario=B Consumer=1] Acked message #58
-2025/11/16 22:00:26.218459 [Scenario=B Consumer=1] Message #59 body="Task #59" elapsed_since_first=27.138416ms
-2025/11/16 22:00:26.218469 [Scenario=B Consumer=1] Acked message #59
-2025/11/16 22:00:26.219074 [Scenario=B Consumer=1] Message #60 body="Task #60" elapsed_since_first=27.754ms
-2025/11/16 22:00:26.219085 [Scenario=B Consumer=1] Acked message #60
-2025/11/16 22:00:26.219643 [Scenario=B Consumer=1] Message #61 body="Task #61" elapsed_since_first=28.322291ms
-2025/11/16 22:00:26.219656 [Scenario=B Consumer=1] Acked message #61
-2025/11/16 22:00:26.220053 [Scenario=B Consumer=1] Message #62 body="Task #62" elapsed_since_first=28.732666ms
-2025/11/16 22:00:26.220065 [Scenario=B Consumer=1] Acked message #62
-2025/11/16 22:00:26.220371 [Scenario=B Consumer=1] Message #63 body="Task #63" elapsed_since_first=29.050958ms
-2025/11/16 22:00:26.220383 [Scenario=B Consumer=1] Acked message #63
-2025/11/16 22:00:26.220709 [Scenario=B Consumer=1] Message #64 body="Task #64" elapsed_since_first=29.388375ms
-2025/11/16 22:00:26.220719 [Scenario=B Consumer=1] Acked message #64
-2025/11/16 22:00:26.221040 [Scenario=B Consumer=1] Message #65 body="Task #65" elapsed_since_first=29.719416ms
-2025/11/16 22:00:26.221048 [Scenario=B Consumer=1] Acked message #65
-2025/11/16 22:00:26.221372 [Scenario=B Consumer=1] Message #66 body="Task #66" elapsed_since_first=30.051541ms
-2025/11/16 22:00:26.221382 [Scenario=B Consumer=1] Acked message #66
-2025/11/16 22:00:26.221740 [Scenario=B Consumer=1] Message #67 body="Task #67" elapsed_since_first=30.419416ms
-2025/11/16 22:00:26.221754 [Scenario=B Consumer=1] Acked message #67
-2025/11/16 22:00:26.222293 [Scenario=B Consumer=1] Message #68 body="Task #68" elapsed_since_first=30.972458ms
-2025/11/16 22:00:26.222303 [Scenario=B Consumer=1] Acked message #68
-2025/11/16 22:00:26.222728 [Scenario=B Consumer=1] Message #69 body="Task #69" elapsed_since_first=31.408166ms
-2025/11/16 22:00:26.222739 [Scenario=B Consumer=1] Acked message #69
-2025/11/16 22:00:26.223144 [Scenario=B Consumer=1] Message #70 body="Task #70" elapsed_since_first=31.823625ms
-2025/11/16 22:00:26.223155 [Scenario=B Consumer=1] Acked message #70
-2025/11/16 22:00:26.223487 [Scenario=B Consumer=1] Message #71 body="Task #71" elapsed_since_first=32.166916ms
-2025/11/16 22:00:26.223500 [Scenario=B Consumer=1] Acked message #71
-2025/11/16 22:00:26.223851 [Scenario=B Consumer=1] Message #72 body="Task #72" elapsed_since_first=32.530583ms
-2025/11/16 22:00:26.223861 [Scenario=B Consumer=1] Acked message #72
-2025/11/16 22:00:26.224138 [Scenario=B Consumer=1] Message #73 body="Task #73" elapsed_since_first=32.817958ms
-2025/11/16 22:00:26.224148 [Scenario=B Consumer=1] Acked message #73
-2025/11/16 22:00:26.224431 [Scenario=B Consumer=1] Message #74 body="Task #74" elapsed_since_first=33.110291ms
-2025/11/16 22:00:26.224443 [Scenario=B Consumer=1] Acked message #74
-2025/11/16 22:00:26.224796 [Scenario=B Consumer=1] Message #75 body="Task #75" elapsed_since_first=33.475291ms
-2025/11/16 22:00:26.224806 [Scenario=B Consumer=1] Acked message #75
-2025/11/16 22:00:26.225165 [Scenario=B Consumer=1] Message #76 body="Task #76" elapsed_since_first=33.844833ms
-2025/11/16 22:00:26.225179 [Scenario=B Consumer=1] Acked message #76
-2025/11/16 22:00:26.225506 [Scenario=B Consumer=1] Message #77 body="Task #77" elapsed_since_first=34.185833ms
-2025/11/16 22:00:26.225518 [Scenario=B Consumer=1] Acked message #77
-2025/11/16 22:00:26.225861 [Scenario=B Consumer=1] Message #78 body="Task #78" elapsed_since_first=34.54075ms
-2025/11/16 22:00:26.225874 [Scenario=B Consumer=1] Acked message #78
-2025/11/16 22:00:26.226230 [Scenario=B Consumer=1] Message #79 body="Task #79" elapsed_since_first=34.90975ms
-2025/11/16 22:00:26.226241 [Scenario=B Consumer=1] Acked message #79
-2025/11/16 22:00:26.226685 [Scenario=B Consumer=1] Message #80 body="Task #80" elapsed_since_first=35.364666ms
-2025/11/16 22:00:26.226697 [Scenario=B Consumer=1] Acked message #80
-2025/11/16 22:00:26.227213 [Scenario=B Consumer=1] Message #81 body="Task #81" elapsed_since_first=35.892916ms
-2025/11/16 22:00:26.227225 [Scenario=B Consumer=1] Acked message #81
-2025/11/16 22:00:26.227544 [Scenario=B Consumer=1] Message #82 body="Task #82" elapsed_since_first=36.2235ms
-2025/11/16 22:00:26.227555 [Scenario=B Consumer=1] Acked message #82
-2025/11/16 22:00:26.227900 [Scenario=B Consumer=1] Message #83 body="Task #83" elapsed_since_first=36.579916ms
-2025/11/16 22:00:26.227913 [Scenario=B Consumer=1] Acked message #83
-2025/11/16 22:00:26.228233 [Scenario=B Consumer=1] Message #84 body="Task #84" elapsed_since_first=36.912416ms
-2025/11/16 22:00:26.228244 [Scenario=B Consumer=1] Acked message #84
-2025/11/16 22:00:26.228557 [Scenario=B Consumer=1] Message #85 body="Task #85" elapsed_since_first=37.236416ms
-2025/11/16 22:00:26.228569 [Scenario=B Consumer=1] Acked message #85
-2025/11/16 22:00:26.228970 [Scenario=B Consumer=1] Message #86 body="Task #86" elapsed_since_first=37.649416ms
-2025/11/16 22:00:26.228981 [Scenario=B Consumer=1] Acked message #86
-2025/11/16 22:00:26.229403 [Scenario=B Consumer=1] Message #87 body="Task #87" elapsed_since_first=38.082458ms
-2025/11/16 22:00:26.229413 [Scenario=B Consumer=1] Acked message #87
-2025/11/16 22:00:26.229753 [Scenario=B Consumer=1] Message #88 body="Task #88" elapsed_since_first=38.432541ms
-2025/11/16 22:00:26.229766 [Scenario=B Consumer=1] Acked message #88
-2025/11/16 22:00:26.230227 [Scenario=B Consumer=1] Message #89 body="Task #89" elapsed_since_first=38.906583ms
-2025/11/16 22:00:26.230240 [Scenario=B Consumer=1] Acked message #89
-2025/11/16 22:00:26.230547 [Scenario=B Consumer=1] Message #90 body="Task #90" elapsed_since_first=39.22675ms
-2025/11/16 22:00:26.230569 [Scenario=B Consumer=1] Acked message #90
-2025/11/16 22:00:26.230883 [Scenario=B Consumer=1] Message #91 body="Task #91" elapsed_since_first=39.562291ms
-2025/11/16 22:00:26.230892 [Scenario=B Consumer=1] Acked message #91
-2025/11/16 22:00:26.231153 [Scenario=B Consumer=1] Message #92 body="Task #92" elapsed_since_first=39.832625ms
-2025/11/16 22:00:26.231162 [Scenario=B Consumer=1] Acked message #92
-2025/11/16 22:00:26.231406 [Scenario=B Consumer=1] Message #93 body="Task #93" elapsed_since_first=40.085458ms
-2025/11/16 22:00:26.231418 [Scenario=B Consumer=1] Acked message #93
-2025/11/16 22:00:26.231990 [Scenario=B Consumer=1] Message #94 body="Task #94" elapsed_since_first=40.669708ms
-2025/11/16 22:00:26.231998 [Scenario=B Consumer=1] Acked message #94
-2025/11/16 22:00:26.232299 [Scenario=B Consumer=1] Message #95 body="Task #95" elapsed_since_first=40.978583ms
-2025/11/16 22:00:26.232311 [Scenario=B Consumer=1] Acked message #95
-2025/11/16 22:00:26.232650 [Scenario=B Consumer=1] Message #96 body="Task #96" elapsed_since_first=41.329333ms
-2025/11/16 22:00:26.232662 [Scenario=B Consumer=1] Acked message #96
-2025/11/16 22:00:26.232998 [Scenario=B Consumer=1] Message #97 body="Task #97" elapsed_since_first=41.677291ms
-2025/11/16 22:00:26.233010 [Scenario=B Consumer=1] Acked message #97
-2025/11/16 22:00:26.233294 [Scenario=B Consumer=1] Message #98 body="Task #98" elapsed_since_first=41.973291ms
-2025/11/16 22:00:26.233305 [Scenario=B Consumer=1] Acked message #98
-2025/11/16 22:00:26.233933 [Scenario=B Consumer=1] Message #99 body="Task #99" elapsed_since_first=42.612625ms
-2025/11/16 22:00:26.233949 [Scenario=B Consumer=1] Acked message #99
-2025/11/16 22:00:26.234498 [Scenario=B Consumer=1] Message #100 body="Task #100" elapsed_since_first=43.177708ms
-2025/11/16 22:00:26.234514 [Scenario=B Consumer=1] Acked message #100
-
-TOTAL = 43.17
+2025/11/17 12:02:30.039327 Logging to file logs/scenario_B_consumer1.log
+2025/11/17 12:02:30.039542 Starting: Scenario=B ConsumerID=1 AutoAck=false Prefetch=1 Workers=1
+2025/11/17 12:02:30.059365 Consumer is now waiting for messages (sequential)...
+2025/11/17 12:02:32.100285 [Scenario=B Consumer=1] First message received at 2025-11-17T12:02:32.10027+03:30
+2025/11/17 12:02:32.100315 [Scenario=B Consumer=1] Message #1 body="Task #1" elapsed_since_first=42.792µs
+2025/11/17 12:02:34.101662 [Scenario=B Consumer=1] Acked message #1
+2025/11/17 12:02:34.106153 [Scenario=B Consumer=1] Message #2 body="Task #2" elapsed_since_first=2.005838208s
+2025/11/17 12:02:36.107635 [Scenario=B Consumer=1] Acked message #2
+2025/11/17 12:02:36.110777 [Scenario=B Consumer=1] Message #3 body="Task #3" elapsed_since_first=4.010439792s
+2025/11/17 12:02:38.112146 [Scenario=B Consumer=1] Acked message #3
+2025/11/17 12:02:38.115745 [Scenario=B Consumer=1] Message #4 body="Task #4" elapsed_since_first=6.015374583s
+2025/11/17 12:02:40.117080 [Scenario=B Consumer=1] Acked message #4
+2025/11/17 12:02:40.119380 [Scenario=B Consumer=1] Message #5 body="Task #5" elapsed_since_first=8.018978333s
+2025/11/17 12:02:42.120776 [Scenario=B Consumer=1] Acked message #5
+2025/11/17 12:02:42.124767 [Scenario=B Consumer=1] Message #6 body="Task #6" elapsed_since_first=10.024332333s
+2025/11/17 12:02:44.126248 [Scenario=B Consumer=1] Acked message #6
+2025/11/17 12:02:44.129299 [Scenario=B Consumer=1] Message #7 body="Task #7" elapsed_since_first=12.028832083s
+2025/11/17 12:02:46.130620 [Scenario=B Consumer=1] Acked message #7
+2025/11/17 12:02:46.132873 [Scenario=B Consumer=1] Message #8 body="Task #8" elapsed_since_first=14.032374417s
+2025/11/17 12:02:48.134233 [Scenario=B Consumer=1] Acked message #8
+2025/11/17 12:02:48.137600 [Scenario=B Consumer=1] Message #9 body="Task #9" elapsed_since_first=16.037067458s
+2025/11/17 12:02:50.138997 [Scenario=B Consumer=1] Acked message #9
+2025/11/17 12:02:50.142867 [Scenario=B Consumer=1] Message #10 body="Task #10" elapsed_since_first=18.0423015s
+2025/11/17 12:02:52.144229 [Scenario=B Consumer=1] Acked message #10

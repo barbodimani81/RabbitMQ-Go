@@ -26,6 +26,7 @@ type ConsumerConfig struct {
 func loadConfig() ConsumerConfig {
 	scenarioFlag := flag.String("scenario", "A", "Scenarios: A, B, C")
 	consumerIDFlag := flag.String("consumer-id", "1", "Identifier for consumer")
+	prefetchFlag := flag.Int("prefetch", 0, "Prefetch count (default)")
 
 	flag.Parse()
 
@@ -54,12 +55,17 @@ func loadConfig() ConsumerConfig {
 		// Manual ack, concurrent
 		// 3 workers, prefetch=3 -> matches our “3 tasks in ~5s” narrative
 		cfg.AutoAck = false
-		cfg.Prefetch = 3
+		cfg.Prefetch = 6
 		cfg.WorkerCount = 3
 
 	default:
 		log.Fatalf("unknown scenario: %q (use A, B, or C)", scenario)
 	}
+
+	// If user provided an explicit prefetch, override scenario defaults
+    if *prefetchFlag > 0 {
+        cfg.Prefetch = *prefetchFlag
+    }
 
 	return cfg
 }
@@ -102,7 +108,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to set up logger: %s", err)
 	}
-	defer logFile.Close()
+	defer func() {
+		if cerr := logFile.Close(); cerr != nil {
+			log.Printf("Warning: failed to close log file: %v", cerr)
+		}
+	}()
 
 	log.Printf(
 		"Starting: Scenario=%s ConsumerID=%s AutoAck=%t Prefetch=%d Workers=%d",
@@ -133,185 +143,168 @@ func main() {
 
 // Scenario A & B: sequential consumer
 func runScenarioAB(cfg ConsumerConfig, client *rabbit.RabbitMQClient, queueName string) {
-	msgs, err := client.Consume(queueName, cfg.AutoAck)
-	if err != nil {
-		log.Fatalf("Failed to start consuming from queue %q: %s", queueName, err)
-	}
+    msgs, err := client.Consume(queueName, cfg.AutoAck)
+    if err != nil {
+        log.Fatalf("Failed to start consuming from queue %q: %s", queueName, err)
+    }
 
-	var (
-		firstMessageTime time.Time
-		messageCount     int
-	)
+    var (
+        firstMessageTime time.Time
+        messageCount     int
+    )
 
-	log.Println("Consumer is now waiting for messages (sequential)...")
+    log.Println("Consumer is now waiting for messages (sequential)...")
 
-	// Different work durations per scenario just for clearer comparison.
-	// workDuration := 1 * time.Second
-	// if cfg.Scenario == "B" {
-	// 	workDuration = 2 * time.Second
-	// }
+    // Simulated work per message:
+    workDuration := 1 * time.Second
+    if cfg.Scenario == "B" {
+        workDuration = 2 * time.Second
+    }
 
-	for msg := range msgs {
-		if firstMessageTime.IsZero() {
-			firstMessageTime = time.Now()
-			log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
-				cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
-		}
+    for msg := range msgs {
+        if firstMessageTime.IsZero() {
+            firstMessageTime = time.Now()
+            log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
+                cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
+        }
 
-		messageCount++
-		now := time.Now()
-		elapsed := now.Sub(firstMessageTime)
+        messageCount++
+        now := time.Now()
+        elapsed := now.Sub(firstMessageTime)
 
-		log.Printf(
-			"[Scenario=%s Consumer=%s] Message #%d body=%q elapsed_since_first=%s",
-			cfg.Scenario,
-			cfg.ConsumerID,
-			messageCount,
-			string(msg.Body),
-			elapsed,
-		)
+        log.Printf(
+            "[Scenario=%s Consumer=%s] Message #%d body=%q elapsed_since_first=%s",
+            cfg.Scenario,
+            cfg.ConsumerID,
+            messageCount,
+            string(msg.Body),
+            elapsed,
+        )
 
-		// Simulate work
-		// time.Sleep(workDuration)
+        // Simulate work
+        time.Sleep(workDuration)
 
-		// Manual ack if auto-ack is disabled (Scenario B)
-		if !cfg.AutoAck {
-			if err := msg.Ack(false); err != nil {
-				log.Printf(
-					"[Scenario=%s Consumer=%s] FAILED to ack message #%d: %s",
-					cfg.Scenario,
-					cfg.ConsumerID,
-					messageCount,
-					err,
-				)
-			} else {
-				log.Printf(
-					"[Scenario=%s Consumer=%s] Acked message #%d",
-					cfg.Scenario,
-					cfg.ConsumerID,
-					messageCount,
-				)
-			}
-		}
-	}
+        if !cfg.AutoAck {
+            if err := msg.Ack(false); err != nil {
+                log.Printf(
+                    "[Scenario=%s Consumer=%s] FAILED to ack message #%d: %s",
+                    cfg.Scenario,
+                    cfg.ConsumerID,
+                    messageCount,
+                    err,
+                )
+            } else {
+                log.Printf(
+                    "[Scenario=%s Consumer=%s] Acked message #%d",
+                    cfg.Scenario,
+                    cfg.ConsumerID,
+                    messageCount,
+                )
+            }
+        }
+    }
 
-	// Channel closed -> log total elapsed
-	if !firstMessageTime.IsZero() {
-		totalElapsed := time.Since(firstMessageTime)
-		log.Printf("[Scenario=%s Consumer=%s] Message stream ended. Total elapsed since first message: %s (messages=%d)",
-			cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount)
-	} else {
-		log.Printf("[Scenario=%s Consumer=%s] No messages received.",
-			cfg.Scenario, cfg.ConsumerID)
-	}
+    if !firstMessageTime.IsZero() {
+        totalElapsed := time.Since(firstMessageTime)
+        log.Printf("[Scenario=%s Consumer=%s] Message stream ended. Total elapsed since first message: %s (messages=%d)",
+            cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount)
+        log.Printf("TOTAL (Scenario=%s Consumer=%s) = %s", cfg.Scenario, cfg.ConsumerID, totalElapsed)
+    } else {
+        log.Printf("[Scenario=%s Consumer=%s] No messages received.",
+            cfg.Scenario, cfg.ConsumerID)
+    }
 }
+
 
 // Scenario C: worker pool with manual ack
 func runScenarioC(cfg ConsumerConfig, client *rabbit.RabbitMQClient, queueName string) {
-	if cfg.AutoAck {
-		log.Fatalf("Scenario C must use manual ack (AutoAck=false)")
-	}
+    if cfg.AutoAck {
+        log.Fatalf("Scenario C requires manual ack. AutoAck must be false.")
+    }
 
-	msgs, err := client.Consume(queueName, cfg.AutoAck)
-	if err != nil {
-		log.Fatalf("Failed to start consuming from queue %q: %s", queueName, err)
-	}
+    msgs, err := client.Consume(queueName, cfg.AutoAck)
+    if err != nil {
+        log.Fatalf("Failed to register consumer: %s", err)
+    }
 
-	log.Println("Consumer is now waiting for messages (concurrent worker pool)...")
+    jobs := make(chan amqp.Delivery, cfg.WorkerCount)
 
-	// Work duration in C: heavier, to make concurrency obvious
-	// workDuration := 3 * time.Second
+    var (
+        firstMessageTime time.Time
+        messageCount     int
+        mu               sync.Mutex
+    )
 
-	// Jobs channel for workers
-	jobs := make(chan amqp.Delivery, cfg.WorkerCount)
+    log.Println("Consumer is now waiting for messages (concurrent worker pool)...")
 
-	var (
-		firstMessageTime time.Time
-		messageCount     int
-		mu               sync.Mutex
-	)
+    // 3s per message (your choice)
+    workDuration := 3 * time.Second
 
-	// Start workers
-	var wg sync.WaitGroup
-	for i := 1; i <= cfg.WorkerCount; i++ {
-		wg.Add(1)
-		workerID := i
+    var wg sync.WaitGroup
+    for i := 1; i <= cfg.WorkerCount; i++ {
+        wg.Add(1)
+        workerID := i
 
-		go func(id int) {
-			defer wg.Done()
-			for msg := range jobs {
-				start := time.Now()
-				log.Printf(
-					"[Scenario=%s Consumer=%s Worker=%d] START processing body=%q at %s",
-					cfg.Scenario,
-					cfg.ConsumerID,
-					id,
-					string(msg.Body),
-					start.Format(time.RFC3339Nano),
-				)
+        go func(id int) {
+            defer wg.Done()
+            for msg := range jobs {
+                start := time.Now()
+                log.Printf("[Scenario=%s Consumer=%s Worker=%d] START processing body=%q at %s",
+                    cfg.Scenario, cfg.ConsumerID, id, string(msg.Body), start.Format(time.RFC3339Nano))
 
-				// time.Sleep(workDuration)
+                // Simulated work
+                time.Sleep(workDuration)
 
-				if err := msg.Ack(false); err != nil {
-					log.Printf(
-						"[Scenario=%s Consumer=%s Worker=%d] FAILED to ack message: %s",
-						cfg.Scenario,
-						cfg.ConsumerID,
-						id,
-						err,
-					)
-				} else {
-					end := time.Now()
-					log.Printf(
-						"[Scenario=%s Consumer=%s Worker=%d] FINISH processing body=%q at %s (duration=%s)",
-						cfg.Scenario,
-						cfg.ConsumerID,
-						id,
-						string(msg.Body),
-						end.Format(time.RFC3339Nano),
-						end.Sub(start),
-					)
-				}
-			}
-		}(workerID)
-	}
+                if err := msg.Ack(false); err != nil {
+                    log.Printf("[Scenario=%s Consumer=%s Worker=%d] FAILED to ack message: %s",
+                        cfg.Scenario, cfg.ConsumerID, id, err)
+                } else {
+                    end := time.Now()
+                    log.Printf("[Scenario=%s Consumer=%s Worker=%d] FINISH processing body=%q at %s (duration=%s)",
+                        cfg.Scenario, cfg.ConsumerID, id, string(msg.Body), end.Format(time.RFC3339Nano), end.Sub(start))
+                }
+            }
+        }(workerID)
+    }
 
-	// Dispatcher: read from msgs, log receipt, push into jobs
-	for msg := range msgs {
-		now := time.Now()
+    // Dispatcher loop stays as you wrote it...
+    for msg := range msgs {
+        now := time.Now()
 
-		mu.Lock()
-		if firstMessageTime.IsZero() {
-			firstMessageTime = now
-			log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
-				cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
-		}
-		messageCount++
-		elapsed := now.Sub(firstMessageTime)
-		mu.Unlock()
+        mu.Lock()
+        if firstMessageTime.IsZero() {
+            firstMessageTime = now
+            log.Printf("[Scenario=%s Consumer=%s] First message received at %s",
+                cfg.Scenario, cfg.ConsumerID, firstMessageTime.Format(time.RFC3339Nano))
+        }
+        messageCount++
+        elapsed := now.Sub(firstMessageTime)
+        mu.Unlock()
 
-		log.Printf(
-			"[Scenario=%s Consumer=%s] DISPATCH message #%d body=%q elapsed_since_first=%s",
-			cfg.Scenario,
-			cfg.ConsumerID,
-			messageCount,
-			string(msg.Body),
-			elapsed,
-		)
+        log.Printf(
+            "[Scenario=%s Consumer=%s] DISPATCH message #%d body=%q elapsed_since_first=%s",
+            cfg.Scenario,
+            cfg.ConsumerID,
+            messageCount,
+            string(msg.Body),
+            elapsed,
+        )
 
-		jobs <- msg
-	}
+        jobs <- msg
+    }
 
-	// No more messages from RabbitMQ, close the jobs channel, wait for workers
-	close(jobs)
-	wg.Wait()
+    close(jobs)
+    wg.Wait()
 
-	if !firstMessageTime.IsZero() {
-		totalElapsed := time.Since(firstMessageTime)
-		log.Printf("[Scenario=%s Consumer=%s] All workers done. Total elapsed since first message: %s (messages=%d, workers=%d)",
-			cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount, cfg.WorkerCount)
-	} else {
-		log.Printf("[Scenario=%s Consumer=%s] No messages received.",
-			cfg.Scenario, cfg.ConsumerID)
-	}
+    if !firstMessageTime.IsZero() {
+        totalElapsed := time.Since(firstMessageTime)
+        log.Printf("[Scenario=%s Consumer=%s] All workers done. Total elapsed since first message: %s (messages=%d, workers=%d)",
+            cfg.Scenario, cfg.ConsumerID, totalElapsed, messageCount, cfg.WorkerCount)
+
+        log.Printf("TOTAL (Scenario=%s Consumer=%s) = %s",
+            cfg.Scenario, cfg.ConsumerID, totalElapsed)
+    } else {
+        log.Printf("[Scenario=%s Consumer=%s] No messages received.",
+            cfg.Scenario, cfg.ConsumerID)
+    }
 }

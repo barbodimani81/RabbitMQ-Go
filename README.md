@@ -23,7 +23,7 @@ This project implements a **message publishing and consuming system** using **Ra
 ## *NOTE*: All task can be done with 2 consumers
 
 ### Sample commands for consumer:
-`go run main.go --scenario=A --consumer-id=1`
+`go run main.go --scenario=A --consumer-id=1 -prefetch=5`
 
-`go run main.go --scenario=C --consumer-id=2`
+`go run main.go --scenario=C --consumer-id=2 -prefetch=20`
 
