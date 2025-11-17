@@ -22,6 +22,13 @@ func main() {
 	defer client.Close()
 
 	exchangeName := "logs"
+	queueName := "logs_queue"
+
+	// Declare exchange + queue + binding once
+    if err := client.EnsureExchangeAndQueue(exchangeName, queueName); err != nil {
+        log.Fatalf("Failed to ensure exchange/queue: %s", err)
+    }
+
 	for i := 1; i <= 10; i++ {
 		message := fmt.Sprintf("Task #%d", i)
 		// Retry publish of the same message until it succeeds

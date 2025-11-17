@@ -1,34 +1,19 @@
-2025/11/17 12:04:23.040173 Logging to file logs/scenario_C_consumer1.log
-2025/11/17 12:04:23.040248 Starting: Scenario=C ConsumerID=1 AutoAck=false Prefetch=20 Workers=3
-2025/11/17 12:04:23.051746 Consumer is now waiting for messages (concurrent worker pool)...
-2025/11/17 12:04:24.703695 [Scenario=C Consumer=1] First message received at 2025-11-17T12:04:24.703684+03:30
-2025/11/17 12:04:24.703734 [Scenario=C Consumer=1] DISPATCH message #1 body="Task #1" elapsed_since_first=0s
-2025/11/17 12:04:24.703757 [Scenario=C Consumer=1] DISPATCH message #2 body="Task #2" elapsed_since_first=72.666µs
-2025/11/17 12:04:24.703763 [Scenario=C Consumer=1 Worker=1] START processing body="Task #2" at 2025-11-17T12:04:24.703763+03:30
-2025/11/17 12:04:24.703768 [Scenario=C Consumer=1] DISPATCH message #3 body="Task #3" elapsed_since_first=83.291µs
-2025/11/17 12:04:24.703794 [Scenario=C Consumer=1 Worker=2] START processing body="Task #3" at 2025-11-17T12:04:24.703793+03:30
-2025/11/17 12:04:24.703790 [Scenario=C Consumer=1 Worker=3] START processing body="Task #1" at 2025-11-17T12:04:24.70376+03:30
-2025/11/17 12:04:24.704099 [Scenario=C Consumer=1] DISPATCH message #4 body="Task #4" elapsed_since_first=414.291µs
-2025/11/17 12:04:24.704373 [Scenario=C Consumer=1] DISPATCH message #5 body="Task #5" elapsed_since_first=689.208µs
-2025/11/17 12:04:24.704686 [Scenario=C Consumer=1] DISPATCH message #6 body="Task #6" elapsed_since_first=1.001583ms
-2025/11/17 12:04:24.705012 [Scenario=C Consumer=1] DISPATCH message #7 body="Task #7" elapsed_since_first=1.327833ms
-2025/11/17 12:04:27.705345 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #1" at 2025-11-17T12:04:27.705333+03:30 (duration=3.001524084s)
-2025/11/17 12:04:27.705533 [Scenario=C Consumer=1 Worker=3] START processing body="Task #4" at 2025-11-17T12:04:27.705529+03:30
-2025/11/17 12:04:27.705579 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #3" at 2025-11-17T12:04:27.705574+03:30 (duration=3.001732083s)
-2025/11/17 12:04:27.705672 [Scenario=C Consumer=1 Worker=2] START processing body="Task #5" at 2025-11-17T12:04:27.705668+03:30
-2025/11/17 12:04:27.705588 [Scenario=C Consumer=1] DISPATCH message #8 body="Task #8" elapsed_since_first=3.001853541s
-2025/11/17 12:04:27.705718 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #2" at 2025-11-17T12:04:27.705714+03:30 (duration=3.001902708s)
-2025/11/17 12:04:27.705783 [Scenario=C Consumer=1 Worker=1] START processing body="Task #6" at 2025-11-17T12:04:27.70578+03:30
-2025/11/17 12:04:27.705735 [Scenario=C Consumer=1] DISPATCH message #9 body="Task #9" elapsed_since_first=3.002001041s
-2025/11/17 12:04:27.705831 [Scenario=C Consumer=1] DISPATCH message #10 body="Task #10" elapsed_since_first=3.002096541s
-2025/11/17 12:04:30.706940 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #4" at 2025-11-17T12:04:30.706904+03:30 (duration=3.001325792s)
-2025/11/17 12:04:30.707130 [Scenario=C Consumer=1 Worker=3] START processing body="Task #7" at 2025-11-17T12:04:30.707127+03:30
-2025/11/17 12:04:30.707005 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #6" at 2025-11-17T12:04:30.707001+03:30 (duration=3.001172208s)
-2025/11/17 12:04:30.707209 [Scenario=C Consumer=1 Worker=1] START processing body="Task #8" at 2025-11-17T12:04:30.707207+03:30
-2025/11/17 12:04:30.707058 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #5" at 2025-11-17T12:04:30.707056+03:30 (duration=3.001339125s)
-2025/11/17 12:04:30.707288 [Scenario=C Consumer=1 Worker=2] START processing body="Task #9" at 2025-11-17T12:04:30.707282+03:30
-2025/11/17 12:04:33.709067 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #8" at 2025-11-17T12:04:33.709058+03:30 (duration=3.001802417s)
-2025/11/17 12:04:33.711882 [Scenario=C Consumer=1 Worker=1] START processing body="Task #10" at 2025-11-17T12:04:33.711877+03:30
-2025/11/17 12:04:33.711235 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #9" at 2025-11-17T12:04:33.711227+03:30 (duration=3.003895833s)
-2025/11/17 12:04:33.711321 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #7" at 2025-11-17T12:04:33.711319+03:30 (duration=3.004143292s)
-2025/11/17 12:04:36.717476 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #10" at 2025-11-17T12:04:36.717472+03:30 (duration=3.005545584s)
+2025/11/17 14:13:54.551017 Logging to file logs/scenario_C_consumer1.log
+2025/11/17 14:13:54.551102 Starting: Scenario=C ConsumerID=1 AutoAck=false Prefetch=3 Workers=3
+2025/11/17 14:13:54.564498 Consumer is now waiting for messages (concurrent worker pool)...
+2025/11/17 14:13:56.711778 [Scenario=C Consumer=1] First message received at 2025-11-17T14:13:56.711766+03:30
+2025/11/17 14:13:56.711799 [Scenario=C Consumer=1] DISPATCH message #1 body="Task #2" elapsed_since_first=0s
+2025/11/17 14:13:56.711814 [Scenario=C Consumer=1 Worker=3] START processing body="Task #2" at 2025-11-17T14:13:56.711813+03:30
+2025/11/17 14:13:56.712398 [Scenario=C Consumer=1] DISPATCH message #2 body="Task #4" elapsed_since_first=631.584µs
+2025/11/17 14:13:56.712406 [Scenario=C Consumer=1 Worker=2] START processing body="Task #4" at 2025-11-17T14:13:56.712406+03:30
+2025/11/17 14:13:56.713109 [Scenario=C Consumer=1] DISPATCH message #3 body="Task #6" elapsed_since_first=1.342875ms
+2025/11/17 14:13:56.713126 [Scenario=C Consumer=1 Worker=1] START processing body="Task #6" at 2025-11-17T14:13:56.713125+03:30
+2025/11/17 14:13:59.712742 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #4" at 2025-11-17T14:13:59.712733+03:30 (duration=3.000318083s)
+2025/11/17 14:13:59.712990 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #2" at 2025-11-17T14:13:59.712978+03:30 (duration=3.0011555s)
+2025/11/17 14:13:59.713289 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #6" at 2025-11-17T14:13:59.713285+03:30 (duration=3.000150875s)
+2025/11/17 14:13:59.717122 [Scenario=C Consumer=1] DISPATCH message #4 body="Task #9" elapsed_since_first=3.005344375s
+2025/11/17 14:13:59.717226 [Scenario=C Consumer=1] DISPATCH message #5 body="Task #10" elapsed_since_first=3.005449667s
+2025/11/17 14:13:59.717260 [Scenario=C Consumer=1 Worker=3] START processing body="Task #10" at 2025-11-17T14:13:59.717258+03:30
+2025/11/17 14:13:59.717274 [Scenario=C Consumer=1 Worker=2] START processing body="Task #9" at 2025-11-17T14:13:59.717271+03:30
+2025/11/17 14:14:02.717912 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #9" at 2025-11-17T14:14:02.717908+03:30 (duration=3.00062725s)
+2025/11/17 14:14:02.718044 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #10" at 2025-11-17T14:14:02.718041+03:30 (duration=3.000773417s)
