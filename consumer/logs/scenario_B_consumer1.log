@@ -1,14 +1,14 @@
-2025/11/17 12:45:27.714937 Logging to file logs/scenario_B_consumer1.log
-2025/11/17 12:45:27.715028 Starting: Scenario=B ConsumerID=1 AutoAck=false Prefetch=2 Workers=1
-2025/11/17 12:45:27.724626 Consumer is now waiting for messages (sequential)...
-2025/11/17 12:45:30.305745 [Scenario=B Consumer=1] First message received at 2025-11-17T12:45:30.305739+03:30
-2025/11/17 12:45:30.305768 [Scenario=B Consumer=1] Message #1 body="Task #2" elapsed_since_first=29.167µs
-2025/11/17 12:45:32.306995 [Scenario=B Consumer=1] Acked message #1
-2025/11/17 12:45:32.307106 [Scenario=B Consumer=1] Message #2 body="Task #4" elapsed_since_first=2.0013265s
-2025/11/17 12:45:34.308447 [Scenario=B Consumer=1] Acked message #2
-2025/11/17 12:45:34.308639 [Scenario=B Consumer=1] Message #3 body="Task #6" elapsed_since_first=4.002820625s
-2025/11/17 12:45:36.310070 [Scenario=B Consumer=1] Acked message #3
-2025/11/17 12:45:36.310176 [Scenario=B Consumer=1] Message #4 body="Task #8" elapsed_since_first=6.004318083s
-2025/11/17 12:45:38.311379 [Scenario=B Consumer=1] Acked message #4
-2025/11/17 12:45:38.311489 [Scenario=B Consumer=1] Message #5 body="Task #9" elapsed_since_first=8.005593083s
-2025/11/17 12:45:40.312714 [Scenario=B Consumer=1] Acked message #5
+2025/11/17 13:57:43.906294 Logging to file logs/scenario_B_consumer1.log
+2025/11/17 13:57:43.906378 Starting: Scenario=B ConsumerID=1 AutoAck=false Prefetch=1 Workers=1
+2025/11/17 13:57:43.913038 Consumer is now waiting for messages (sequential)...
+2025/11/17 13:57:45.853705 [Scenario=B Consumer=1] First message received at 2025-11-17T13:57:45.853701+03:30
+2025/11/17 13:57:45.853722 [Scenario=B Consumer=1] Message #1 body="Task #2" elapsed_since_first=20.166µs22025/11/17 13:57:47.854890 [Scenario=B Consumer=1] Acked message #122025/11/17 13:57:47.858597 [Scenario=B Consumer=1] Message #2 body="Task #6" elapsed_since_first=2.004880708s22025/11/17 13:57:49.859809 [Scenario=B Consumer=1] Acked message #2
+2025/11/17 13:57:49.860459 [Scenario=B Consumer=1] Message #3 body="Task #9" elapsed_since_first=4.006732416s22025/11/17 13:57:51.861619 [Scenario=B Consumer=1] Acked message #3
+025/11/17 13:57:51.857655 [Scenario=B Consumer=1] Message #4 body="Task #5" elapsed_since_first=6.004204541s
+2025/11/17 13:57:53.858906 [Scenario=B Consumer=1] Acked message #4
+2025/11/17 13:57:53.860002 [Scenario=B Consumer=1] Message #5 body="Task #7" elapsed_since_first=8.006538291s
+2025/11/17 13:57:55.861422 [Scenario=B Consumer=1] Acked message #5
+2025/11/17 13:57:55.861600 [Scenario=B Consumer=1] Message #6 body="Task #8" elapsed_since_first=10.008123875s
+2025/11/17 13:57:57.862802 [Scenario=B Consumer=1] Acked message #6
+2025/11/17 13:57:57.863017 [Scenario=B Consumer=1] Message #7 body="Task #10" elapsed_since_first=12.009527875s
+2025/11/17 13:57:59.864444 [Scenario=B Consumer=1] Acked message #7

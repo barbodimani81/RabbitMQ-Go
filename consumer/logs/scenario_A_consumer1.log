@@ -1,9 +1,9 @@
-2025/11/17 12:43:43.194066 Logging to file logs/scenario_A_consumer1.log
-2025/11/17 12:43:43.194258 Starting: Scenario=A ConsumerID=1 AutoAck=true Prefetch=1 Workers=1
-2025/11/17 12:43:43.206178 Consumer is now waiting for messages (sequential)...
-2025/11/17 12:43:46.148149 [Scenario=A Consumer=1] First message received at 2025-11-17T12:43:46.148124+03:30
-2025/11/17 12:43:46.148177 [Scenario=A Consumer=1] Message #1 body="Task #2" elapsed_since_first=52.708µs
-2025/11/17 12:43:47.149390 [Scenario=A Consumer=1] Message #2 body="Task #4" elapsed_since_first=1.001239042s
-2025/11/17 12:43:48.150298 [Scenario=A Consumer=1] Message #3 body="Task #6" elapsed_since_first=2.00212725s
-2025/11/17 12:43:49.151124 [Scenario=A Consumer=1] Message #4 body="Task #8" elapsed_since_first=3.002935042s
-2025/11/17 12:43:50.152441 [Scenario=A Consumer=1] Message #5 body="Task #10" elapsed_since_first=4.004233875s
+2025/11/17 13:50:51.147759 Logging to file logs/scenario_A_consumer1.log
+2025/11/17 13:50:51.147847 Starting: Scenario=A ConsumerID=1 AutoAck=true Prefetch=1 Workers=1
+2025/11/17 13:50:51.156076 Consumer is now waiting for messages (sequential)...
+2025/11/17 13:50:54.125366 [Scenario=A Consumer=1] First message received at 2025-11-17T13:50:54.12536+03:30
+2025/11/17 13:50:54.125392 [Scenario=A Consumer=1] Message #1 body="Task #2" elapsed_since_first=31.916µs
+2025/11/17 13:50:55.126132 [Scenario=A Consumer=1] Message #2 body="Task #4" elapsed_since_first=1.000951666s
+2025/11/17 13:50:56.127091 [Scenario=A Consumer=1] Message #3 body="Task #6" elapsed_since_first=2.002077125s
+2025/11/17 13:50:57.128214 [Scenario=A Consumer=1] Message #4 body="Task #8" elapsed_since_first=3.003361791s
+2025/11/17 13:50:58.129262 [Scenario=A Consumer=1] Message #5 body="Task #10" elapsed_since_first=4.004558583s
