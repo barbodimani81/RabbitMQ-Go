@@ -10,15 +10,17 @@ This project implements a **message publishing and consuming system** using **Ra
 
 # Summary
 
-### *Scanrio A* -> Auto-Ack + Sequential
+### *Scanrio A -> Auto-Ack*
 - Each message 1s -> 10 message 10s
+- For 2 consumers: 5-5 acks & 5 seconds
 
-### *Scanrio B* -> Manual-Ack + Sequential
+### *Scanrio B* -> Manual-Ack(Sequential)
 - Each message 2s -> 10 message 20s
+- For 2 consumers with prefetch = 1/4 -> 3 - 7 acks & 14s
 
-### *Scanrio C* -> Manual-Ack + Concurrency
-- Each message 3s -> 10 message 10s
-- 3 workers + 3 prefetch
+### *Scanrio C* -> Manual-Ack + Concurrency(3 workers)
+- Each message 3s -> 10 message 9s
+- or 2 consumers with prefetch = 3/3 -> 4 - 6 acks & 6s
 
 ## *NOTE*: All task can be done with 2 consumers
 
