@@ -34,7 +34,7 @@ func main() {
 			}
 			break
 		}
-		time.Sleep(1*time.Second)
+		// time.Sleep(1*time.Second)
 		fmt.Printf("Sent: %s\n", message)
 	}
 }

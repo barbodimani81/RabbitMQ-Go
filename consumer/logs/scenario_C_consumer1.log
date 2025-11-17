@@ -1,0 +1,304 @@
+2025/11/16 22:22:39.720521 Logging to file logs/scenario_C_consumer1.log
+2025/11/16 22:22:39.721148 Starting: Scenario=C ConsumerID=1 AutoAck=false Prefetch=3 Workers=3
+2025/11/16 22:22:39.763184 Consumer is now waiting for messages (concurrent worker pool)...
+2025/11/16 22:22:42.469590 [Scenario=C Consumer=1] First message received at 2025-11-16T22:22:42.469569+03:30
+2025/11/16 22:22:42.469641 [Scenario=C Consumer=1] DISPATCH message #1 body="Task #1" elapsed_since_first=0s
+2025/11/16 22:22:42.469665 [Scenario=C Consumer=1] DISPATCH message #2 body="Task #2" elapsed_since_first=95.667µs
+2025/11/16 22:22:42.469674 [Scenario=C Consumer=1 Worker=3] START processing body="Task #2" at 2025-11-16T22:22:42.469674+03:30
+2025/11/16 22:22:42.469696 [Scenario=C Consumer=1 Worker=1] START processing body="Task #1" at 2025-11-16T22:22:42.469691+03:30
+2025/11/16 22:22:42.469744 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #2" at 2025-11-16T22:22:42.469743+03:30 (duration=69.833µs)
+2025/11/16 22:22:42.469764 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #1" at 2025-11-16T22:22:42.469763+03:30 (duration=71.875µs)
+2025/11/16 22:22:42.469757 [Scenario=C Consumer=1] DISPATCH message #3 body="Task #3" elapsed_since_first=187.917µs
+2025/11/16 22:22:42.469782 [Scenario=C Consumer=1 Worker=2] START processing body="Task #3" at 2025-11-16T22:22:42.469782+03:30
+2025/11/16 22:22:42.469797 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #3" at 2025-11-16T22:22:42.469797+03:30 (duration=14.75µs)
+2025/11/16 22:22:42.471283 [Scenario=C Consumer=1] DISPATCH message #4 body="Task #4" elapsed_since_first=1.71325ms
+2025/11/16 22:22:42.471298 [Scenario=C Consumer=1] DISPATCH message #5 body="Task #5" elapsed_since_first=1.728833ms
+2025/11/16 22:22:42.471305 [Scenario=C Consumer=1 Worker=1] START processing body="Task #5" at 2025-11-16T22:22:42.471304+03:30
+2025/11/16 22:22:42.471324 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #5" at 2025-11-16T22:22:42.471324+03:30 (duration=19.459µs)
+2025/11/16 22:22:42.471322 [Scenario=C Consumer=1 Worker=3] START processing body="Task #4" at 2025-11-16T22:22:42.471305+03:30
+2025/11/16 22:22:42.471341 [Scenario=C Consumer=1] DISPATCH message #6 body="Task #6" elapsed_since_first=1.771458ms
+2025/11/16 22:22:42.471355 [Scenario=C Consumer=1 Worker=2] START processing body="Task #6" at 2025-11-16T22:22:42.471354+03:30
+2025/11/16 22:22:42.471370 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #6" at 2025-11-16T22:22:42.471369+03:30 (duration=15.458µs)
+2025/11/16 22:22:42.471359 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #4" at 2025-11-16T22:22:42.471358+03:30 (duration=53.625µs)
+2025/11/16 22:22:42.471990 [Scenario=C Consumer=1] DISPATCH message #7 body="Task #7" elapsed_since_first=2.419917ms
+2025/11/16 22:22:42.472003 [Scenario=C Consumer=1] DISPATCH message #8 body="Task #8" elapsed_since_first=2.433333ms
+2025/11/16 22:22:42.472008 [Scenario=C Consumer=1 Worker=2] START processing body="Task #8" at 2025-11-16T22:22:42.472007+03:30
+2025/11/16 22:22:42.472017 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #8" at 2025-11-16T22:22:42.472017+03:30 (duration=9.291µs)
+2025/11/16 22:22:42.472018 [Scenario=C Consumer=1 Worker=1] START processing body="Task #7" at 2025-11-16T22:22:42.472017+03:30
+2025/11/16 22:22:42.472029 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #7" at 2025-11-16T22:22:42.472029+03:30 (duration=11.459µs)
+2025/11/16 22:22:42.472303 [Scenario=C Consumer=1] DISPATCH message #9 body="Task #9" elapsed_since_first=2.733542ms
+2025/11/16 22:22:42.472313 [Scenario=C Consumer=1 Worker=3] START processing body="Task #9" at 2025-11-16T22:22:42.472313+03:30
+2025/11/16 22:22:42.472322 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #9" at 2025-11-16T22:22:42.472322+03:30 (duration=8.917µs)
+2025/11/16 22:22:42.472642 [Scenario=C Consumer=1] DISPATCH message #10 body="Task #10" elapsed_since_first=3.072667ms
+2025/11/16 22:22:42.472651 [Scenario=C Consumer=1 Worker=2] START processing body="Task #10" at 2025-11-16T22:22:42.47265+03:30
+2025/11/16 22:22:42.472678 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #10" at 2025-11-16T22:22:42.472677+03:30 (duration=26.959µs)
+2025/11/16 22:22:42.473065 [Scenario=C Consumer=1] DISPATCH message #11 body="Task #11" elapsed_since_first=3.495958ms
+2025/11/16 22:22:42.473074 [Scenario=C Consumer=1 Worker=1] START processing body="Task #11" at 2025-11-16T22:22:42.473074+03:30
+2025/11/16 22:22:42.473083 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #11" at 2025-11-16T22:22:42.473083+03:30 (duration=8.833µs)
+2025/11/16 22:22:42.473349 [Scenario=C Consumer=1] DISPATCH message #12 body="Task #12" elapsed_since_first=3.779292ms
+2025/11/16 22:22:42.473356 [Scenario=C Consumer=1 Worker=3] START processing body="Task #12" at 2025-11-16T22:22:42.473356+03:30
+2025/11/16 22:22:42.473363 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #12" at 2025-11-16T22:22:42.473363+03:30 (duration=7.167µs)
+2025/11/16 22:22:42.473690 [Scenario=C Consumer=1] DISPATCH message #13 body="Task #13" elapsed_since_first=4.120375ms
+2025/11/16 22:22:42.473698 [Scenario=C Consumer=1 Worker=2] START processing body="Task #13" at 2025-11-16T22:22:42.473698+03:30
+2025/11/16 22:22:42.473709 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #13" at 2025-11-16T22:22:42.473708+03:30 (duration=10.25µs)
+2025/11/16 22:22:42.474064 [Scenario=C Consumer=1] DISPATCH message #14 body="Task #14" elapsed_since_first=4.494333ms
+2025/11/16 22:22:42.474070 [Scenario=C Consumer=1 Worker=1] START processing body="Task #14" at 2025-11-16T22:22:42.474069+03:30
+2025/11/16 22:22:42.474080 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #14" at 2025-11-16T22:22:42.474079+03:30 (duration=10.084µs)
+2025/11/16 22:22:42.474471 [Scenario=C Consumer=1] DISPATCH message #15 body="Task #15" elapsed_since_first=4.901292ms
+2025/11/16 22:22:42.474480 [Scenario=C Consumer=1 Worker=3] START processing body="Task #15" at 2025-11-16T22:22:42.474479+03:30
+2025/11/16 22:22:42.474488 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #15" at 2025-11-16T22:22:42.474488+03:30 (duration=8.334µs)
+2025/11/16 22:22:42.474799 [Scenario=C Consumer=1] DISPATCH message #16 body="Task #16" elapsed_since_first=5.22975ms
+2025/11/16 22:22:42.474807 [Scenario=C Consumer=1 Worker=2] START processing body="Task #16" at 2025-11-16T22:22:42.474807+03:30
+2025/11/16 22:22:42.474817 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #16" at 2025-11-16T22:22:42.474817+03:30 (duration=9.625µs)
+2025/11/16 22:22:42.475159 [Scenario=C Consumer=1] DISPATCH message #17 body="Task #17" elapsed_since_first=5.589375ms
+2025/11/16 22:22:42.475166 [Scenario=C Consumer=1 Worker=1] START processing body="Task #17" at 2025-11-16T22:22:42.475166+03:30
+2025/11/16 22:22:42.475174 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #17" at 2025-11-16T22:22:42.475174+03:30 (duration=8µs)
+2025/11/16 22:22:42.475548 [Scenario=C Consumer=1] DISPATCH message #18 body="Task #18" elapsed_since_first=5.978625ms
+2025/11/16 22:22:42.475554 [Scenario=C Consumer=1 Worker=3] START processing body="Task #18" at 2025-11-16T22:22:42.475554+03:30
+2025/11/16 22:22:42.475563 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #18" at 2025-11-16T22:22:42.475563+03:30 (duration=8.875µs)
+2025/11/16 22:22:42.475846 [Scenario=C Consumer=1] DISPATCH message #19 body="Task #19" elapsed_since_first=6.2765ms
+2025/11/16 22:22:42.475851 [Scenario=C Consumer=1 Worker=2] START processing body="Task #19" at 2025-11-16T22:22:42.475851+03:30
+2025/11/16 22:22:42.475857 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #19" at 2025-11-16T22:22:42.475857+03:30 (duration=6.042µs)
+2025/11/16 22:22:42.476183 [Scenario=C Consumer=1] DISPATCH message #20 body="Task #20" elapsed_since_first=6.614167ms
+2025/11/16 22:22:42.476189 [Scenario=C Consumer=1 Worker=1] START processing body="Task #20" at 2025-11-16T22:22:42.476189+03:30
+2025/11/16 22:22:42.476195 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #20" at 2025-11-16T22:22:42.476195+03:30 (duration=6.542µs)
+2025/11/16 22:22:42.476509 [Scenario=C Consumer=1] DISPATCH message #21 body="Task #21" elapsed_since_first=6.939333ms
+2025/11/16 22:22:42.476514 [Scenario=C Consumer=1 Worker=3] START processing body="Task #21" at 2025-11-16T22:22:42.476514+03:30
+2025/11/16 22:22:42.476521 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #21" at 2025-11-16T22:22:42.476521+03:30 (duration=6.625µs)
+2025/11/16 22:22:42.476833 [Scenario=C Consumer=1] DISPATCH message #22 body="Task #22" elapsed_since_first=7.263292ms
+2025/11/16 22:22:42.476838 [Scenario=C Consumer=1 Worker=2] START processing body="Task #22" at 2025-11-16T22:22:42.476838+03:30
+2025/11/16 22:22:42.476845 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #22" at 2025-11-16T22:22:42.476845+03:30 (duration=6.792µs)
+2025/11/16 22:22:42.477211 [Scenario=C Consumer=1] DISPATCH message #23 body="Task #23" elapsed_since_first=7.641458ms
+2025/11/16 22:22:42.477217 [Scenario=C Consumer=1 Worker=1] START processing body="Task #23" at 2025-11-16T22:22:42.477216+03:30
+2025/11/16 22:22:42.477225 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #23" at 2025-11-16T22:22:42.477224+03:30 (duration=7.791µs)
+2025/11/16 22:22:42.477562 [Scenario=C Consumer=1] DISPATCH message #24 body="Task #24" elapsed_since_first=7.992458ms
+2025/11/16 22:22:42.477568 [Scenario=C Consumer=1 Worker=3] START processing body="Task #24" at 2025-11-16T22:22:42.477568+03:30
+2025/11/16 22:22:42.477579 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #24" at 2025-11-16T22:22:42.477578+03:30 (duration=10.5µs)
+2025/11/16 22:22:42.477847 [Scenario=C Consumer=1] DISPATCH message #25 body="Task #25" elapsed_since_first=8.277875ms
+2025/11/16 22:22:42.477853 [Scenario=C Consumer=1 Worker=2] START processing body="Task #25" at 2025-11-16T22:22:42.477852+03:30
+2025/11/16 22:22:42.477860 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #25" at 2025-11-16T22:22:42.477859+03:30 (duration=7µs)
+2025/11/16 22:22:42.478196 [Scenario=C Consumer=1] DISPATCH message #26 body="Task #26" elapsed_since_first=8.627042ms
+2025/11/16 22:22:42.478203 [Scenario=C Consumer=1 Worker=1] START processing body="Task #26" at 2025-11-16T22:22:42.478203+03:30
+2025/11/16 22:22:42.478215 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #26" at 2025-11-16T22:22:42.478214+03:30 (duration=11.625µs)
+2025/11/16 22:22:42.478558 [Scenario=C Consumer=1] DISPATCH message #27 body="Task #27" elapsed_since_first=8.9885ms
+2025/11/16 22:22:42.478568 [Scenario=C Consumer=1 Worker=3] START processing body="Task #27" at 2025-11-16T22:22:42.478567+03:30
+2025/11/16 22:22:42.478576 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #27" at 2025-11-16T22:22:42.478576+03:30 (duration=8.334µs)
+2025/11/16 22:22:42.478838 [Scenario=C Consumer=1] DISPATCH message #28 body="Task #28" elapsed_since_first=9.269042ms
+2025/11/16 22:22:42.478845 [Scenario=C Consumer=1 Worker=2] START processing body="Task #28" at 2025-11-16T22:22:42.478845+03:30
+2025/11/16 22:22:42.478853 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #28" at 2025-11-16T22:22:42.478853+03:30 (duration=8.375µs)
+2025/11/16 22:22:42.479191 [Scenario=C Consumer=1] DISPATCH message #29 body="Task #29" elapsed_since_first=9.622167ms
+2025/11/16 22:22:42.479198 [Scenario=C Consumer=1 Worker=1] START processing body="Task #29" at 2025-11-16T22:22:42.479198+03:30
+2025/11/16 22:22:42.479205 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #29" at 2025-11-16T22:22:42.479205+03:30 (duration=6.75µs)
+2025/11/16 22:22:42.479563 [Scenario=C Consumer=1] DISPATCH message #30 body="Task #30" elapsed_since_first=9.993333ms
+2025/11/16 22:22:42.479569 [Scenario=C Consumer=1 Worker=3] START processing body="Task #30" at 2025-11-16T22:22:42.479568+03:30
+2025/11/16 22:22:42.479576 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #30" at 2025-11-16T22:22:42.479576+03:30 (duration=7.25µs)
+2025/11/16 22:22:42.479930 [Scenario=C Consumer=1] DISPATCH message #31 body="Task #31" elapsed_since_first=10.36075ms
+2025/11/16 22:22:42.479945 [Scenario=C Consumer=1 Worker=2] START processing body="Task #31" at 2025-11-16T22:22:42.479945+03:30
+2025/11/16 22:22:42.479953 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #31" at 2025-11-16T22:22:42.479953+03:30 (duration=7.959µs)
+2025/11/16 22:22:42.480265 [Scenario=C Consumer=1] DISPATCH message #32 body="Task #32" elapsed_since_first=10.695417ms
+2025/11/16 22:22:42.480271 [Scenario=C Consumer=1 Worker=1] START processing body="Task #32" at 2025-11-16T22:22:42.480271+03:30
+2025/11/16 22:22:42.480277 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #32" at 2025-11-16T22:22:42.480277+03:30 (duration=6.625µs)
+2025/11/16 22:22:42.480571 [Scenario=C Consumer=1] DISPATCH message #33 body="Task #33" elapsed_since_first=11.002042ms
+2025/11/16 22:22:42.480578 [Scenario=C Consumer=1 Worker=3] START processing body="Task #33" at 2025-11-16T22:22:42.480578+03:30
+2025/11/16 22:22:42.480589 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #33" at 2025-11-16T22:22:42.480589+03:30 (duration=10.75µs)
+2025/11/16 22:22:42.480914 [Scenario=C Consumer=1] DISPATCH message #34 body="Task #34" elapsed_since_first=11.344667ms
+2025/11/16 22:22:42.480920 [Scenario=C Consumer=1 Worker=2] START processing body="Task #34" at 2025-11-16T22:22:42.48092+03:30
+2025/11/16 22:22:42.480928 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #34" at 2025-11-16T22:22:42.480928+03:30 (duration=7.708µs)
+2025/11/16 22:22:42.481206 [Scenario=C Consumer=1] DISPATCH message #35 body="Task #35" elapsed_since_first=11.637208ms
+2025/11/16 22:22:42.481213 [Scenario=C Consumer=1 Worker=1] START processing body="Task #35" at 2025-11-16T22:22:42.481211+03:30
+2025/11/16 22:22:42.481219 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #35" at 2025-11-16T22:22:42.481219+03:30 (duration=7.5µs)
+2025/11/16 22:22:42.481635 [Scenario=C Consumer=1] DISPATCH message #36 body="Task #36" elapsed_since_first=12.0645ms
+2025/11/16 22:22:42.481698 [Scenario=C Consumer=1 Worker=3] START processing body="Task #36" at 2025-11-16T22:22:42.481683+03:30
+2025/11/16 22:22:42.481740 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #36" at 2025-11-16T22:22:42.481739+03:30 (duration=56.75µs)
+2025/11/16 22:22:42.482234 [Scenario=C Consumer=1] DISPATCH message #37 body="Task #37" elapsed_since_first=12.664458ms
+2025/11/16 22:22:42.482243 [Scenario=C Consumer=1 Worker=2] START processing body="Task #37" at 2025-11-16T22:22:42.482242+03:30
+2025/11/16 22:22:42.482265 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #37" at 2025-11-16T22:22:42.482264+03:30 (duration=21.917µs)
+2025/11/16 22:22:42.482852 [Scenario=C Consumer=1] DISPATCH message #38 body="Task #38" elapsed_since_first=13.283ms
+2025/11/16 22:22:42.482862 [Scenario=C Consumer=1 Worker=1] START processing body="Task #38" at 2025-11-16T22:22:42.482861+03:30
+2025/11/16 22:22:42.482869 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #38" at 2025-11-16T22:22:42.482869+03:30 (duration=7.917µs)
+2025/11/16 22:22:42.483355 [Scenario=C Consumer=1] DISPATCH message #39 body="Task #39" elapsed_since_first=13.78525ms
+2025/11/16 22:22:42.483360 [Scenario=C Consumer=1 Worker=3] START processing body="Task #39" at 2025-11-16T22:22:42.48336+03:30
+2025/11/16 22:22:42.483369 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #39" at 2025-11-16T22:22:42.483369+03:30 (duration=8.542µs)
+2025/11/16 22:22:42.483742 [Scenario=C Consumer=1] DISPATCH message #40 body="Task #40" elapsed_since_first=14.172167ms
+2025/11/16 22:22:42.483758 [Scenario=C Consumer=1 Worker=2] START processing body="Task #40" at 2025-11-16T22:22:42.483757+03:30
+2025/11/16 22:22:42.483770 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #40" at 2025-11-16T22:22:42.483769+03:30 (duration=12µs)
+2025/11/16 22:22:42.484115 [Scenario=C Consumer=1] DISPATCH message #41 body="Task #41" elapsed_since_first=14.545125ms
+2025/11/16 22:22:42.484125 [Scenario=C Consumer=1 Worker=1] START processing body="Task #41" at 2025-11-16T22:22:42.484125+03:30
+2025/11/16 22:22:42.484146 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #41" at 2025-11-16T22:22:42.484146+03:30 (duration=21.333µs)
+2025/11/16 22:22:42.484596 [Scenario=C Consumer=1] DISPATCH message #42 body="Task #42" elapsed_since_first=15.026333ms
+2025/11/16 22:22:42.484603 [Scenario=C Consumer=1 Worker=3] START processing body="Task #42" at 2025-11-16T22:22:42.484603+03:30
+2025/11/16 22:22:42.484613 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #42" at 2025-11-16T22:22:42.484612+03:30 (duration=9.5µs)
+2025/11/16 22:22:42.484999 [Scenario=C Consumer=1] DISPATCH message #43 body="Task #43" elapsed_since_first=15.429958ms
+2025/11/16 22:22:42.485007 [Scenario=C Consumer=1 Worker=2] START processing body="Task #43" at 2025-11-16T22:22:42.485006+03:30
+2025/11/16 22:22:42.485014 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #43" at 2025-11-16T22:22:42.485013+03:30 (duration=7.417µs)
+2025/11/16 22:22:42.485359 [Scenario=C Consumer=1] DISPATCH message #44 body="Task #44" elapsed_since_first=15.79ms
+2025/11/16 22:22:42.485367 [Scenario=C Consumer=1 Worker=1] START processing body="Task #44" at 2025-11-16T22:22:42.485366+03:30
+2025/11/16 22:22:42.485377 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #44" at 2025-11-16T22:22:42.485377+03:30 (duration=10.292µs)
+2025/11/16 22:22:42.485757 [Scenario=C Consumer=1] DISPATCH message #45 body="Task #45" elapsed_since_first=16.188167ms
+2025/11/16 22:22:42.485764 [Scenario=C Consumer=1 Worker=3] START processing body="Task #45" at 2025-11-16T22:22:42.485763+03:30
+2025/11/16 22:22:42.485770 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #45" at 2025-11-16T22:22:42.48577+03:30 (duration=6.75µs)
+2025/11/16 22:22:42.486206 [Scenario=C Consumer=1] DISPATCH message #46 body="Task #46" elapsed_since_first=16.636792ms
+2025/11/16 22:22:42.486217 [Scenario=C Consumer=1 Worker=2] START processing body="Task #46" at 2025-11-16T22:22:42.486216+03:30
+2025/11/16 22:22:42.486224 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #46" at 2025-11-16T22:22:42.486224+03:30 (duration=7.834µs)
+2025/11/16 22:22:42.486713 [Scenario=C Consumer=1] DISPATCH message #47 body="Task #47" elapsed_since_first=17.144125ms
+2025/11/16 22:22:42.486722 [Scenario=C Consumer=1 Worker=1] START processing body="Task #47" at 2025-11-16T22:22:42.486721+03:30
+2025/11/16 22:22:42.486732 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #47" at 2025-11-16T22:22:42.486731+03:30 (duration=9.875µs)
+2025/11/16 22:22:42.487129 [Scenario=C Consumer=1] DISPATCH message #48 body="Task #48" elapsed_since_first=17.559792ms
+2025/11/16 22:22:42.487138 [Scenario=C Consumer=1 Worker=3] START processing body="Task #48" at 2025-11-16T22:22:42.487137+03:30
+2025/11/16 22:22:42.487145 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #48" at 2025-11-16T22:22:42.487145+03:30 (duration=7.75µs)
+2025/11/16 22:22:42.487571 [Scenario=C Consumer=1] DISPATCH message #49 body="Task #49" elapsed_since_first=18.001333ms
+2025/11/16 22:22:42.487578 [Scenario=C Consumer=1 Worker=2] START processing body="Task #49" at 2025-11-16T22:22:42.487577+03:30
+2025/11/16 22:22:42.487586 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #49" at 2025-11-16T22:22:42.487585+03:30 (duration=8.166µs)
+2025/11/16 22:22:42.487936 [Scenario=C Consumer=1] DISPATCH message #50 body="Task #50" elapsed_since_first=18.366125ms
+2025/11/16 22:22:42.487943 [Scenario=C Consumer=1 Worker=1] START processing body="Task #50" at 2025-11-16T22:22:42.487943+03:30
+2025/11/16 22:22:42.487952 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #50" at 2025-11-16T22:22:42.487952+03:30 (duration=9.084µs)
+2025/11/16 22:22:42.488322 [Scenario=C Consumer=1] DISPATCH message #51 body="Task #51" elapsed_since_first=18.753208ms
+2025/11/16 22:22:42.488332 [Scenario=C Consumer=1 Worker=3] START processing body="Task #51" at 2025-11-16T22:22:42.488331+03:30
+2025/11/16 22:22:42.488339 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #51" at 2025-11-16T22:22:42.488338+03:30 (duration=7.209µs)
+2025/11/16 22:22:42.488691 [Scenario=C Consumer=1] DISPATCH message #52 body="Task #52" elapsed_since_first=19.121333ms
+2025/11/16 22:22:42.488698 [Scenario=C Consumer=1 Worker=2] START processing body="Task #52" at 2025-11-16T22:22:42.488698+03:30
+2025/11/16 22:22:42.488708 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #52" at 2025-11-16T22:22:42.488708+03:30 (duration=10.292µs)
+2025/11/16 22:22:42.489070 [Scenario=C Consumer=1] DISPATCH message #53 body="Task #53" elapsed_since_first=19.500792ms
+2025/11/16 22:22:42.489079 [Scenario=C Consumer=1 Worker=1] START processing body="Task #53" at 2025-11-16T22:22:42.489078+03:30
+2025/11/16 22:22:42.489087 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #53" at 2025-11-16T22:22:42.489087+03:30 (duration=8.459µs)
+2025/11/16 22:22:42.489522 [Scenario=C Consumer=1] DISPATCH message #54 body="Task #54" elapsed_since_first=19.952875ms
+2025/11/16 22:22:42.489530 [Scenario=C Consumer=1 Worker=3] START processing body="Task #54" at 2025-11-16T22:22:42.489529+03:30
+2025/11/16 22:22:42.489537 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #54" at 2025-11-16T22:22:42.489537+03:30 (duration=7.334µs)
+2025/11/16 22:22:42.489860 [Scenario=C Consumer=1] DISPATCH message #55 body="Task #55" elapsed_since_first=20.290708ms
+2025/11/16 22:22:42.489866 [Scenario=C Consumer=1 Worker=2] START processing body="Task #55" at 2025-11-16T22:22:42.489866+03:30
+2025/11/16 22:22:42.489873 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #55" at 2025-11-16T22:22:42.489873+03:30 (duration=6.875µs)
+2025/11/16 22:22:42.490228 [Scenario=C Consumer=1] DISPATCH message #56 body="Task #56" elapsed_since_first=20.658375ms
+2025/11/16 22:22:42.490235 [Scenario=C Consumer=1 Worker=1] START processing body="Task #56" at 2025-11-16T22:22:42.490235+03:30
+2025/11/16 22:22:42.490242 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #56" at 2025-11-16T22:22:42.490242+03:30 (duration=7.209µs)
+2025/11/16 22:22:42.490600 [Scenario=C Consumer=1] DISPATCH message #57 body="Task #57" elapsed_since_first=21.031125ms
+2025/11/16 22:22:42.490611 [Scenario=C Consumer=1 Worker=3] START processing body="Task #57" at 2025-11-16T22:22:42.49061+03:30
+2025/11/16 22:22:42.490617 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #57" at 2025-11-16T22:22:42.490617+03:30 (duration=6.583µs)
+2025/11/16 22:22:42.490962 [Scenario=C Consumer=1] DISPATCH message #58 body="Task #58" elapsed_since_first=21.392833ms
+2025/11/16 22:22:42.490971 [Scenario=C Consumer=1 Worker=2] START processing body="Task #58" at 2025-11-16T22:22:42.490971+03:30
+2025/11/16 22:22:42.490981 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #58" at 2025-11-16T22:22:42.490981+03:30 (duration=10.083µs)
+2025/11/16 22:22:42.491395 [Scenario=C Consumer=1] DISPATCH message #59 body="Task #59" elapsed_since_first=21.825917ms
+2025/11/16 22:22:42.491401 [Scenario=C Consumer=1 Worker=1] START processing body="Task #59" at 2025-11-16T22:22:42.4914+03:30
+2025/11/16 22:22:42.491407 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #59" at 2025-11-16T22:22:42.491406+03:30 (duration=5.917µs)
+2025/11/16 22:22:42.491787 [Scenario=C Consumer=1] DISPATCH message #60 body="Task #60" elapsed_since_first=22.217292ms
+2025/11/16 22:22:42.491793 [Scenario=C Consumer=1 Worker=3] START processing body="Task #60" at 2025-11-16T22:22:42.491793+03:30
+2025/11/16 22:22:42.491799 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #60" at 2025-11-16T22:22:42.491799+03:30 (duration=5.958µs)
+2025/11/16 22:22:42.492222 [Scenario=C Consumer=1] DISPATCH message #61 body="Task #61" elapsed_since_first=22.6525ms
+2025/11/16 22:22:42.492231 [Scenario=C Consumer=1 Worker=2] START processing body="Task #61" at 2025-11-16T22:22:42.49223+03:30
+2025/11/16 22:22:42.492239 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #61" at 2025-11-16T22:22:42.492239+03:30 (duration=8.292µs)
+2025/11/16 22:22:42.492643 [Scenario=C Consumer=1] DISPATCH message #62 body="Task #62" elapsed_since_first=23.073958ms
+2025/11/16 22:22:42.492653 [Scenario=C Consumer=1 Worker=1] START processing body="Task #62" at 2025-11-16T22:22:42.492652+03:30
+2025/11/16 22:22:42.492663 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #62" at 2025-11-16T22:22:42.492663+03:30 (duration=10.5µs)
+2025/11/16 22:22:42.493035 [Scenario=C Consumer=1] DISPATCH message #63 body="Task #63" elapsed_since_first=23.465583ms
+2025/11/16 22:22:42.493044 [Scenario=C Consumer=1 Worker=3] START processing body="Task #63" at 2025-11-16T22:22:42.493043+03:30
+2025/11/16 22:22:42.493054 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #63" at 2025-11-16T22:22:42.493053+03:30 (duration=10µs)
+2025/11/16 22:22:42.493461 [Scenario=C Consumer=1] DISPATCH message #64 body="Task #64" elapsed_since_first=23.89125ms
+2025/11/16 22:22:42.493469 [Scenario=C Consumer=1 Worker=2] START processing body="Task #64" at 2025-11-16T22:22:42.493469+03:30
+2025/11/16 22:22:42.493477 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #64" at 2025-11-16T22:22:42.493476+03:30 (duration=7.041µs)
+2025/11/16 22:22:42.493897 [Scenario=C Consumer=1] DISPATCH message #65 body="Task #65" elapsed_since_first=24.327833ms
+2025/11/16 22:22:42.493906 [Scenario=C Consumer=1 Worker=1] START processing body="Task #65" at 2025-11-16T22:22:42.493905+03:30
+2025/11/16 22:22:42.493913 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #65" at 2025-11-16T22:22:42.493912+03:30 (duration=7.042µs)
+2025/11/16 22:22:42.494280 [Scenario=C Consumer=1] DISPATCH message #66 body="Task #66" elapsed_since_first=24.710375ms
+2025/11/16 22:22:42.494286 [Scenario=C Consumer=1 Worker=3] START processing body="Task #66" at 2025-11-16T22:22:42.494286+03:30
+2025/11/16 22:22:42.494295 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #66" at 2025-11-16T22:22:42.494295+03:30 (duration=8.75µs)
+2025/11/16 22:22:42.494646 [Scenario=C Consumer=1] DISPATCH message #67 body="Task #67" elapsed_since_first=25.076542ms
+2025/11/16 22:22:42.494654 [Scenario=C Consumer=1 Worker=2] START processing body="Task #67" at 2025-11-16T22:22:42.494653+03:30
+2025/11/16 22:22:42.494661 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #67" at 2025-11-16T22:22:42.49466+03:30 (duration=7µs)
+2025/11/16 22:22:42.495000 [Scenario=C Consumer=1] DISPATCH message #68 body="Task #68" elapsed_since_first=25.430542ms
+2025/11/16 22:22:42.495008 [Scenario=C Consumer=1 Worker=1] START processing body="Task #68" at 2025-11-16T22:22:42.495007+03:30
+2025/11/16 22:22:42.495017 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #68" at 2025-11-16T22:22:42.495015+03:30 (duration=7.542µs)
+2025/11/16 22:22:42.495367 [Scenario=C Consumer=1] DISPATCH message #69 body="Task #69" elapsed_since_first=25.79775ms
+2025/11/16 22:22:42.495376 [Scenario=C Consumer=1 Worker=3] START processing body="Task #69" at 2025-11-16T22:22:42.495376+03:30
+2025/11/16 22:22:42.495385 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #69" at 2025-11-16T22:22:42.495384+03:30 (duration=8.584µs)
+2025/11/16 22:22:42.495716 [Scenario=C Consumer=1] DISPATCH message #70 body="Task #70" elapsed_since_first=26.146667ms
+2025/11/16 22:22:42.495724 [Scenario=C Consumer=1 Worker=2] START processing body="Task #70" at 2025-11-16T22:22:42.495723+03:30
+2025/11/16 22:22:42.495734 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #70" at 2025-11-16T22:22:42.495733+03:30 (duration=10.041µs)
+2025/11/16 22:22:42.496070 [Scenario=C Consumer=1] DISPATCH message #71 body="Task #71" elapsed_since_first=26.500667ms
+2025/11/16 22:22:42.496080 [Scenario=C Consumer=1 Worker=1] START processing body="Task #71" at 2025-11-16T22:22:42.49608+03:30
+2025/11/16 22:22:42.496087 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #71" at 2025-11-16T22:22:42.496087+03:30 (duration=7.5µs)
+2025/11/16 22:22:42.496564 [Scenario=C Consumer=1] DISPATCH message #72 body="Task #72" elapsed_since_first=26.994458ms
+2025/11/16 22:22:42.496577 [Scenario=C Consumer=1 Worker=3] START processing body="Task #72" at 2025-11-16T22:22:42.496577+03:30
+2025/11/16 22:22:42.496586 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #72" at 2025-11-16T22:22:42.496586+03:30 (duration=8.959µs)
+2025/11/16 22:22:42.497031 [Scenario=C Consumer=1] DISPATCH message #73 body="Task #73" elapsed_since_first=27.461417ms
+2025/11/16 22:22:42.497038 [Scenario=C Consumer=1 Worker=2] START processing body="Task #73" at 2025-11-16T22:22:42.497038+03:30
+2025/11/16 22:22:42.497047 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #73" at 2025-11-16T22:22:42.497047+03:30 (duration=9.042µs)
+2025/11/16 22:22:42.497384 [Scenario=C Consumer=1] DISPATCH message #74 body="Task #74" elapsed_since_first=27.814583ms
+2025/11/16 22:22:42.497393 [Scenario=C Consumer=1 Worker=1] START processing body="Task #74" at 2025-11-16T22:22:42.497392+03:30
+2025/11/16 22:22:42.497401 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #74" at 2025-11-16T22:22:42.497401+03:30 (duration=8.375µs)
+2025/11/16 22:22:42.498108 [Scenario=C Consumer=1] DISPATCH message #75 body="Task #75" elapsed_since_first=28.538708ms
+2025/11/16 22:22:42.498117 [Scenario=C Consumer=1 Worker=3] START processing body="Task #75" at 2025-11-16T22:22:42.498116+03:30
+2025/11/16 22:22:42.498128 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #75" at 2025-11-16T22:22:42.498127+03:30 (duration=11.375µs)
+2025/11/16 22:22:42.498598 [Scenario=C Consumer=1] DISPATCH message #76 body="Task #76" elapsed_since_first=29.028708ms
+2025/11/16 22:22:42.498606 [Scenario=C Consumer=1 Worker=2] START processing body="Task #76" at 2025-11-16T22:22:42.498605+03:30
+2025/11/16 22:22:42.498614 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #76" at 2025-11-16T22:22:42.498614+03:30 (duration=8.625µs)
+2025/11/16 22:22:42.499084 [Scenario=C Consumer=1] DISPATCH message #77 body="Task #77" elapsed_since_first=29.51475ms
+2025/11/16 22:22:42.499093 [Scenario=C Consumer=1 Worker=1] START processing body="Task #77" at 2025-11-16T22:22:42.499092+03:30
+2025/11/16 22:22:42.499103 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #77" at 2025-11-16T22:22:42.499102+03:30 (duration=9.875µs)
+2025/11/16 22:22:42.499543 [Scenario=C Consumer=1] DISPATCH message #78 body="Task #78" elapsed_since_first=29.973375ms
+2025/11/16 22:22:42.499551 [Scenario=C Consumer=1 Worker=3] START processing body="Task #78" at 2025-11-16T22:22:42.49955+03:30
+2025/11/16 22:22:42.499558 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #78" at 2025-11-16T22:22:42.499558+03:30 (duration=7.667µs)
+2025/11/16 22:22:42.499896 [Scenario=C Consumer=1] DISPATCH message #79 body="Task #79" elapsed_since_first=30.326833ms
+2025/11/16 22:22:42.499907 [Scenario=C Consumer=1 Worker=2] START processing body="Task #79" at 2025-11-16T22:22:42.499907+03:30
+2025/11/16 22:22:42.499914 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #79" at 2025-11-16T22:22:42.499914+03:30 (duration=7.5µs)
+2025/11/16 22:22:42.500246 [Scenario=C Consumer=1] DISPATCH message #80 body="Task #80" elapsed_since_first=30.676708ms
+2025/11/16 22:22:42.500253 [Scenario=C Consumer=1 Worker=1] START processing body="Task #80" at 2025-11-16T22:22:42.500253+03:30
+2025/11/16 22:22:42.500262 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #80" at 2025-11-16T22:22:42.500261+03:30 (duration=8.625µs)
+2025/11/16 22:22:42.500631 [Scenario=C Consumer=1] DISPATCH message #81 body="Task #81" elapsed_since_first=31.06175ms
+2025/11/16 22:22:42.500637 [Scenario=C Consumer=1 Worker=3] START processing body="Task #81" at 2025-11-16T22:22:42.500637+03:30
+2025/11/16 22:22:42.500644 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #81" at 2025-11-16T22:22:42.500643+03:30 (duration=6.5µs)
+2025/11/16 22:22:42.500994 [Scenario=C Consumer=1] DISPATCH message #82 body="Task #82" elapsed_since_first=31.424208ms
+2025/11/16 22:22:42.501002 [Scenario=C Consumer=1 Worker=2] START processing body="Task #82" at 2025-11-16T22:22:42.501001+03:30
+2025/11/16 22:22:42.501022 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #82" at 2025-11-16T22:22:42.501022+03:30 (duration=20.417µs)
+2025/11/16 22:22:42.501393 [Scenario=C Consumer=1] DISPATCH message #83 body="Task #83" elapsed_since_first=31.823917ms
+2025/11/16 22:22:42.501401 [Scenario=C Consumer=1 Worker=1] START processing body="Task #83" at 2025-11-16T22:22:42.5014+03:30
+2025/11/16 22:22:42.501407 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #83" at 2025-11-16T22:22:42.501407+03:30 (duration=6.792µs)
+2025/11/16 22:22:42.501744 [Scenario=C Consumer=1] DISPATCH message #84 body="Task #84" elapsed_since_first=32.174792ms
+2025/11/16 22:22:42.501750 [Scenario=C Consumer=1 Worker=3] START processing body="Task #84" at 2025-11-16T22:22:42.50175+03:30
+2025/11/16 22:22:42.501758 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #84" at 2025-11-16T22:22:42.501758+03:30 (duration=8.333µs)
+2025/11/16 22:22:42.502155 [Scenario=C Consumer=1] DISPATCH message #85 body="Task #85" elapsed_since_first=32.585583ms
+2025/11/16 22:22:42.502162 [Scenario=C Consumer=1 Worker=2] START processing body="Task #85" at 2025-11-16T22:22:42.502162+03:30
+2025/11/16 22:22:42.502169 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #85" at 2025-11-16T22:22:42.502169+03:30 (duration=6.959µs)
+2025/11/16 22:22:42.502540 [Scenario=C Consumer=1] DISPATCH message #86 body="Task #86" elapsed_since_first=32.970792ms
+2025/11/16 22:22:42.502546 [Scenario=C Consumer=1 Worker=1] START processing body="Task #86" at 2025-11-16T22:22:42.502546+03:30
+2025/11/16 22:22:42.502552 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #86" at 2025-11-16T22:22:42.502552+03:30 (duration=5.958µs)
+2025/11/16 22:22:42.502961 [Scenario=C Consumer=1] DISPATCH message #87 body="Task #87" elapsed_since_first=33.391375ms
+2025/11/16 22:22:42.502967 [Scenario=C Consumer=1 Worker=3] START processing body="Task #87" at 2025-11-16T22:22:42.502967+03:30
+2025/11/16 22:22:42.502975 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #87" at 2025-11-16T22:22:42.502975+03:30 (duration=7.541µs)
+2025/11/16 22:22:42.503355 [Scenario=C Consumer=1] DISPATCH message #88 body="Task #88" elapsed_since_first=33.78525ms
+2025/11/16 22:22:42.503362 [Scenario=C Consumer=1 Worker=2] START processing body="Task #88" at 2025-11-16T22:22:42.503362+03:30
+2025/11/16 22:22:42.503368 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #88" at 2025-11-16T22:22:42.503368+03:30 (duration=6.584µs)
+2025/11/16 22:22:42.503705 [Scenario=C Consumer=1] DISPATCH message #89 body="Task #89" elapsed_since_first=34.135292ms
+2025/11/16 22:22:42.503714 [Scenario=C Consumer=1 Worker=1] START processing body="Task #89" at 2025-11-16T22:22:42.503714+03:30
+2025/11/16 22:22:42.503723 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #89" at 2025-11-16T22:22:42.503722+03:30 (duration=8.291µs)
+2025/11/16 22:22:42.504089 [Scenario=C Consumer=1] DISPATCH message #90 body="Task #90" elapsed_since_first=34.519875ms
+2025/11/16 22:22:42.504099 [Scenario=C Consumer=1 Worker=3] START processing body="Task #90" at 2025-11-16T22:22:42.504098+03:30
+2025/11/16 22:22:42.504119 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #90" at 2025-11-16T22:22:42.504118+03:30 (duration=20.167µs)
+2025/11/16 22:22:42.504481 [Scenario=C Consumer=1] DISPATCH message #91 body="Task #91" elapsed_since_first=34.91225ms
+2025/11/16 22:22:42.504490 [Scenario=C Consumer=1 Worker=2] START processing body="Task #91" at 2025-11-16T22:22:42.504489+03:30
+2025/11/16 22:22:42.504498 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #91" at 2025-11-16T22:22:42.504497+03:30 (duration=8.916µs)
+2025/11/16 22:22:42.504831 [Scenario=C Consumer=1] DISPATCH message #92 body="Task #92" elapsed_since_first=35.26125ms
+2025/11/16 22:22:42.504839 [Scenario=C Consumer=1 Worker=1] START processing body="Task #92" at 2025-11-16T22:22:42.504838+03:30
+2025/11/16 22:22:42.504846 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #92" at 2025-11-16T22:22:42.504846+03:30 (duration=7.708µs)
+2025/11/16 22:22:42.505155 [Scenario=C Consumer=1] DISPATCH message #93 body="Task #93" elapsed_since_first=35.585417ms
+2025/11/16 22:22:42.505162 [Scenario=C Consumer=1 Worker=3] START processing body="Task #93" at 2025-11-16T22:22:42.505162+03:30
+2025/11/16 22:22:42.505169 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #93" at 2025-11-16T22:22:42.505169+03:30 (duration=7.375µs)
+2025/11/16 22:22:42.505507 [Scenario=C Consumer=1] DISPATCH message #94 body="Task #94" elapsed_since_first=35.937542ms
+2025/11/16 22:22:42.505514 [Scenario=C Consumer=1 Worker=2] START processing body="Task #94" at 2025-11-16T22:22:42.505514+03:30
+2025/11/16 22:22:42.505521 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #94" at 2025-11-16T22:22:42.505521+03:30 (duration=7.041µs)
+2025/11/16 22:22:42.505854 [Scenario=C Consumer=1] DISPATCH message #95 body="Task #95" elapsed_since_first=36.28475ms
+2025/11/16 22:22:42.505860 [Scenario=C Consumer=1 Worker=1] START processing body="Task #95" at 2025-11-16T22:22:42.50586+03:30
+2025/11/16 22:22:42.505867 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #95" at 2025-11-16T22:22:42.505867+03:30 (duration=6.625µs)
+2025/11/16 22:22:42.506140 [Scenario=C Consumer=1] DISPATCH message #96 body="Task #96" elapsed_since_first=36.57125ms
+2025/11/16 22:22:42.506149 [Scenario=C Consumer=1 Worker=3] START processing body="Task #96" at 2025-11-16T22:22:42.506149+03:30
+2025/11/16 22:22:42.506157 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #96" at 2025-11-16T22:22:42.506157+03:30 (duration=7.833µs)
+2025/11/16 22:22:42.506469 [Scenario=C Consumer=1] DISPATCH message #97 body="Task #97" elapsed_since_first=36.899708ms
+2025/11/16 22:22:42.506476 [Scenario=C Consumer=1 Worker=2] START processing body="Task #97" at 2025-11-16T22:22:42.506476+03:30
+2025/11/16 22:22:42.506482 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #97" at 2025-11-16T22:22:42.506482+03:30 (duration=5.875µs)
+2025/11/16 22:22:42.506765 [Scenario=C Consumer=1] DISPATCH message #98 body="Task #98" elapsed_since_first=37.19575ms
+2025/11/16 22:22:42.506770 [Scenario=C Consumer=1 Worker=1] START processing body="Task #98" at 2025-11-16T22:22:42.50677+03:30
+2025/11/16 22:22:42.506776 [Scenario=C Consumer=1 Worker=1] FINISH processing body="Task #98" at 2025-11-16T22:22:42.506776+03:30 (duration=5.75µs)
+2025/11/16 22:22:42.507085 [Scenario=C Consumer=1] DISPATCH message #99 body="Task #99" elapsed_since_first=37.516ms
+2025/11/16 22:22:42.507091 [Scenario=C Consumer=1 Worker=3] START processing body="Task #99" at 2025-11-16T22:22:42.507091+03:30
+2025/11/16 22:22:42.507099 [Scenario=C Consumer=1 Worker=3] FINISH processing body="Task #99" at 2025-11-16T22:22:42.507099+03:30 (duration=7.833µs)
+2025/11/16 22:22:42.507654 [Scenario=C Consumer=1] DISPATCH message #100 body="Task #100" elapsed_since_first=38.085208ms
+2025/11/16 22:22:42.507662 [Scenario=C Consumer=1 Worker=2] START processing body="Task #100" at 2025-11-16T22:22:42.507662+03:30
+2025/11/16 22:22:42.507669 [Scenario=C Consumer=1 Worker=2] FINISH processing body="Task #100" at 2025-11-16T22:22:42.507669+03:30 (duration=6.708µs)
